@@ -1,12 +1,17 @@
 set -x
-sudo brctl delif br $1
-sudo brctl delif br $2
-sudo ip link set dev br down
-sudo  brctl delbr br
 
-sudo  brctl addbr br
-sudo  ip link set dev br up
-sudo ip link set dev $1 up
-sudo ip link set dev $2 up
-sudo  brctl addif br $1
-sudo  brctl addif br $2
+dev1=ns1_bridge_veth
+dev2=ns2_bridge_veth
+
+sudo ip link set dev mybr down
+sudo brctl delbr mybr
+sudo brctl addbr mybr
+
+sudo ip link set dev $dev1 up
+sudo ip link set dev $dev2 up
+sudo ip link set dev mybr up
+sudo brctl addif mybr $dev1
+sudo brctl addif mybr $dev2
+
+sudo route add -net 10.10.0.0 netmask 255.255.0.0 dev mybr
+
