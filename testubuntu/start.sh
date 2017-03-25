@@ -14,5 +14,5 @@ sudo ip netns exec $1 ip link set dev veth0 name eth0
 sudo ip link set dev veth1 name $1_bridge_veth
 sudo ip link set dev $1_bridge_veth  up
 
-sudo ip netns exec $1  chroot ./myroot /bin/mybash2
+sudo ip netns exec $1  chroot ./myroot /bin/mybash2 
 
