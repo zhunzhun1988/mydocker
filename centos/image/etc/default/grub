@@ -1,0 +1,7 @@
+GRUB_TIMEOUT=5
+GRUB_DEFAULT=saved
+GRUB_DISABLE_SUBMENU=true
+GRUB_TERMINAL="serial console"
+GRUB_SERIAL_COMMAND="serial"
+GRUB_CMDLINE_LINUX="console=ttyS0 crashkernel=auto"
+GRUB_DISABLE_RECOVERY="true"

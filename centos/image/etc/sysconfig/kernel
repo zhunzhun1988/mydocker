@@ -1,0 +1,10 @@
+# UPDATEDEFAULT specifies if new-kernel-pkg should make
+# new kernels the default
+UPDATEDEFAULT=yes
+
+# DEFAULTKERNEL specifies the default kernel package type
+DEFAULTKERNEL=kernel
+
+# MAKEDEBUG specifies if new-kernel-pkg should create non-default
+# "debug" entries for new kernels.
+MAKEDEBUG=yes

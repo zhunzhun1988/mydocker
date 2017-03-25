@@ -1,0 +1,745 @@
+12:33:22,612 INFO rsyslogd: [origin software="rsyslogd" swVersion="7.4.7" x-pid="1079" x-info="http://www.rsyslog.com"] start
+12:33:22,618 INFO kernel:[    0.000000] Initializing cgroup subsys cpuset
+12:33:22,618 INFO kernel:[    0.000000] Initializing cgroup subsys cpu
+12:33:22,618 INFO kernel:[    0.000000] Initializing cgroup subsys cpuacct
+12:33:22,618 NOTICE kernel:[    0.000000] Linux version 3.10.0-229.el7.x86_64 (builder@kbuilder.dev.centos.org) (gcc version 4.8.2 20140120 (Red Hat 4.8.2-16) (GCC) ) #1 SMP Fri Mar 6 11:36:42 UTC 2015
+12:33:22,618 INFO kernel:[    0.000000] Command line:  ks=file:/centos-7.ks inst.cmdline console=ttyS0 stage2=live:CDLABEL=CentOS\x207\x20x86_64
+12:33:22,618 INFO kernel:[    0.000000] e820: BIOS-provided physical RAM map:
+12:33:22,618 INFO kernel:[    0.000000] BIOS-e820: [mem 0x0000000000000000-0x000000000009fbff] usable
+12:33:22,618 INFO kernel:[    0.000000] BIOS-e820: [mem 0x000000000009fc00-0x000000000009ffff] reserved
+12:33:22,618 INFO kernel:[    0.000000] BIOS-e820: [mem 0x00000000000f0000-0x00000000000fffff] reserved
+12:33:22,618 INFO kernel:[    0.000000] BIOS-e820: [mem 0x0000000000100000-0x000000003fffdfff] usable
+12:33:22,618 INFO kernel:[    0.000000] BIOS-e820: [mem 0x000000003fffe000-0x000000003fffffff] reserved
+12:33:22,618 INFO kernel:[    0.000000] BIOS-e820: [mem 0x00000000feffc000-0x00000000feffffff] reserved
+12:33:22,618 INFO kernel:[    0.000000] BIOS-e820: [mem 0x00000000fffc0000-0x00000000ffffffff] reserved
+12:33:22,618 INFO kernel:[    0.000000] NX (Execute Disable) protection: active
+12:33:22,618 INFO kernel:[    0.000000] SMBIOS 2.4 present.
+12:33:22,618 DEBUG kernel:[    0.000000] DMI: Red Hat KVM, BIOS 0.5.1 01/01/2011
+12:33:22,618 INFO kernel:[    0.000000] Hypervisor detected: KVM
+12:33:22,618 DEBUG kernel:[    0.000000] e820: update [mem 0x00000000-0x00000fff] usable ==> reserved
+12:33:22,618 DEBUG kernel:[    0.000000] e820: remove [mem 0x000a0000-0x000fffff] usable
+12:33:22,618 INFO kernel:[    0.000000] No AGP bridge found
+12:33:22,618 INFO kernel:[    0.000000] e820: last_pfn = 0x3fffe max_arch_pfn = 0x400000000
+12:33:22,618 DEBUG kernel:[    0.000000] MTRR default type: write-back
+12:33:22,618 DEBUG kernel:[    0.000000] MTRR fixed ranges enabled:
+12:33:22,618 DEBUG kernel:[    0.000000]   00000-9FFFF write-back
+12:33:22,618 DEBUG kernel:[    0.000000]   A0000-BFFFF uncachable
+12:33:22,618 DEBUG kernel:[    0.000000]   C0000-FFFFF write-protect
+12:33:22,618 DEBUG kernel:[    0.000000] MTRR variable ranges enabled:
+12:33:22,618 DEBUG kernel:[    0.000000]   0 base 080000000 mask F80000000 uncachable
+12:33:22,618 DEBUG kernel:[    0.000000]   1 disabled
+12:33:22,618 DEBUG kernel:[    0.000000]   2 disabled
+12:33:22,618 DEBUG kernel:[    0.000000]   3 disabled
+12:33:22,618 DEBUG kernel:[    0.000000]   4 disabled
+12:33:22,618 DEBUG kernel:[    0.000000]   5 disabled
+12:33:22,618 DEBUG kernel:[    0.000000]   6 disabled
+12:33:22,618 DEBUG kernel:[    0.000000]   7 disabled
+12:33:22,618 INFO kernel:[    0.000000] x86 PAT enabled: cpu 0, old 0x7040600070406, new 0x7010600070106
+12:33:22,618 INFO kernel:[    0.000000] found SMP MP-table at [mem 0x000f2030-0x000f203f] mapped at [ffff8800000f2030]
+12:33:22,618 DEBUG kernel:[    0.000000] Base memory trampoline at [ffff880000099000] 99000 size 24576
+12:33:22,618 INFO kernel:[    0.000000] init_memory_mapping: [mem 0x00000000-0x000fffff]
+12:33:22,618 DEBUG kernel:[    0.000000]  [mem 0x00000000-0x000fffff] page 4k
+12:33:22,618 DEBUG kernel:[    0.000000] BRK [0x01ee5000, 0x01ee5fff] PGTABLE
+12:33:22,618 DEBUG kernel:[    0.000000] BRK [0x01ee6000, 0x01ee6fff] PGTABLE
+12:33:22,618 DEBUG kernel:[    0.000000] BRK [0x01ee7000, 0x01ee7fff] PGTABLE
+12:33:22,618 INFO kernel:[    0.000000] init_memory_mapping: [mem 0x3da00000-0x3dbfffff]
+12:33:22,618 DEBUG kernel:[    0.000000]  [mem 0x3da00000-0x3dbfffff] page 2M
+12:33:22,618 INFO kernel:[    0.000000] init_memory_mapping: [mem 0x3c000000-0x3d9fffff]
+12:33:22,618 DEBUG kernel:[    0.000000]  [mem 0x3c000000-0x3d9fffff] page 2M
+12:33:22,618 INFO kernel:[    0.000000] init_memory_mapping: [mem 0x00100000-0x3bffffff]
+12:33:22,618 DEBUG kernel:[    0.000000]  [mem 0x00100000-0x001fffff] page 4k
+12:33:22,618 DEBUG kernel:[    0.000000]  [mem 0x00200000-0x3bffffff] page 2M
+12:33:22,618 INFO kernel:[    0.000000] init_memory_mapping: [mem 0x3dc00000-0x3fffdfff]
+12:33:22,618 DEBUG kernel:[    0.000000]  [mem 0x3dc00000-0x3fdfffff] page 2M
+12:33:22,618 DEBUG kernel:[    0.000000]  [mem 0x3fe00000-0x3fffdfff] page 4k
+12:33:22,618 DEBUG kernel:[    0.000000] BRK [0x01ee8000, 0x01ee8fff] PGTABLE
+12:33:22,618 INFO kernel:[    0.000000] RAMDISK: [mem 0x3ddd8000-0x3ffeffff]
+12:33:22,618 WARNING kernel:[    0.000000] ACPI: RSDP 00000000000f1e90 00014 (v00 BOCHS )
+12:33:22,618 WARNING kernel:[    0.000000] ACPI: RSDT 000000003ffffa9b 00030 (v01 BOCHS  BXPCRSDT 00000001 BXPC 00000001)
+12:33:22,618 WARNING kernel:[    0.000000] ACPI: FACP 000000003ffff177 00074 (v01 BOCHS  BXPCFACP 00000001 BXPC 00000001)
+12:33:22,618 WARNING kernel:[    0.000000] ACPI: DSDT 000000003fffe040 01137 (v01   BXPC   BXDSDT 00000001 INTL 20140926)
+12:33:22,618 WARNING kernel:[    0.000000] ACPI: FACS 000000003fffe000 00040
+12:33:22,618 WARNING kernel:[    0.000000] ACPI: SSDT 000000003ffff1eb 00838 (v01 BOCHS  BXPCSSDT 00000001 BXPC 00000001)
+12:33:22,618 WARNING kernel:[    0.000000] ACPI: APIC 000000003ffffa23 00078 (v01 BOCHS  BXPCAPIC 00000001 BXPC 00000001)
+12:33:22,618 DEBUG kernel:[    0.000000] ACPI: Local APIC address 0xfee00000
+12:33:22,618 INFO kernel:[    0.000000] No NUMA configuration found
+12:33:22,618 INFO kernel:[    0.000000] Faking a node at [mem 0x0000000000000000-0x000000003fffdfff]
+12:33:22,618 INFO kernel:[    0.000000] Initmem setup node 0 [mem 0x00000000-0x3fffdfff]
+12:33:22,618 INFO kernel:[    0.000000]   NODE_DATA [mem 0x3ddb1000-0x3ddd7fff]
+12:33:22,618 INFO kernel:[    0.000000] kvm-clock: Using msrs 4b564d01 and 4b564d00
+12:33:22,618 INFO kernel:[    0.000000] kvm-clock: cpu 0, msr 0:3dd61001, primary cpu clock
+12:33:22,618 DEBUG kernel:[    0.000000]  [ffffea0000000000-ffffea0000ffffff] PMD -> [ffff88003c400000-ffff88003d3fffff] on node 0
+12:33:22,618 WARNING kernel:[    0.000000] Zone ranges:
+12:33:22,618 WARNING kernel:[    0.000000]   DMA      [mem 0x00001000-0x00ffffff]
+12:33:22,618 WARNING kernel:[    0.000000]   DMA32    [mem 0x01000000-0xffffffff]
+12:33:22,618 WARNING kernel:[    0.000000]   Normal   empty
+12:33:22,618 WARNING kernel:[    0.000000] Movable zone start for each node
+12:33:22,618 WARNING kernel:[    0.000000] Early memory node ranges
+12:33:22,618 WARNING kernel:[    0.000000]   node   0: [mem 0x00001000-0x0009efff]
+12:33:22,618 WARNING kernel:[    0.000000]   node   0: [mem 0x00100000-0x3fffdfff]
+12:33:22,618 DEBUG kernel:[    0.000000] On node 0 totalpages: 262044
+12:33:22,618 DEBUG kernel:[    0.000000]   DMA zone: 64 pages used for memmap
+12:33:22,618 DEBUG kernel:[    0.000000]   DMA zone: 21 pages reserved
+12:33:22,618 DEBUG kernel:[    0.000000]   DMA zone: 3998 pages, LIFO batch:0
+12:33:22,618 DEBUG kernel:[    0.000000]   DMA32 zone: 4032 pages used for memmap
+12:33:22,618 DEBUG kernel:[    0.000000]   DMA32 zone: 258046 pages, LIFO batch:31
+12:33:22,618 INFO kernel:[    0.000000] ACPI: PM-Timer IO Port: 0x608
+12:33:22,618 DEBUG kernel:[    0.000000] ACPI: Local APIC address 0xfee00000
+12:33:22,618 INFO kernel:[    0.000000] ACPI: LAPIC (acpi_id[0x00] lapic_id[0x00] enabled)
+12:33:22,618 INFO kernel:[    0.000000] ACPI: LAPIC_NMI (acpi_id[0xff] dfl dfl lint[0x1])
+12:33:22,618 INFO kernel:[    0.000000] ACPI: IOAPIC (id[0x00] address[0xfec00000] gsi_base[0])
+12:33:22,618 INFO kernel:[    0.000000] IOAPIC[0]: apic_id 0, version 17, address 0xfec00000, GSI 0-23
+12:33:22,618 INFO kernel:[    0.000000] ACPI: INT_SRC_OVR (bus 0 bus_irq 0 global_irq 2 dfl dfl)
+12:33:22,618 INFO kernel:[    0.000000] ACPI: INT_SRC_OVR (bus 0 bus_irq 5 global_irq 5 high level)
+12:33:22,618 INFO kernel:[    0.000000] ACPI: INT_SRC_OVR (bus 0 bus_irq 9 global_irq 9 high level)
+12:33:22,618 INFO kernel:[    0.000000] ACPI: INT_SRC_OVR (bus 0 bus_irq 10 global_irq 10 high level)
+12:33:22,618 INFO kernel:[    0.000000] ACPI: INT_SRC_OVR (bus 0 bus_irq 11 global_irq 11 high level)
+12:33:22,618 DEBUG kernel:[    0.000000] ACPI: IRQ0 used by override.
+12:33:22,618 DEBUG kernel:[    0.000000] ACPI: IRQ2 used by override.
+12:33:22,618 DEBUG kernel:[    0.000000] ACPI: IRQ5 used by override.
+12:33:22,618 DEBUG kernel:[    0.000000] ACPI: IRQ9 used by override.
+12:33:22,618 DEBUG kernel:[    0.000000] ACPI: IRQ10 used by override.
+12:33:22,618 DEBUG kernel:[    0.000000] ACPI: IRQ11 used by override.
+12:33:22,618 INFO kernel:[    0.000000] Using ACPI (MADT) for SMP configuration information
+12:33:22,618 INFO kernel:[    0.000000] smpboot: Allowing 1 CPUs, 0 hotplug CPUs
+12:33:22,618 DEBUG kernel:[    0.000000] nr_irqs_gsi: 40
+12:33:22,618 INFO kernel:[    0.000000] PM: Registered nosave memory: [mem 0x0009f000-0x0009ffff]
+12:33:22,618 INFO kernel:[    0.000000] PM: Registered nosave memory: [mem 0x000a0000-0x000effff]
+12:33:22,618 INFO kernel:[    0.000000] PM: Registered nosave memory: [mem 0x000f0000-0x000fffff]
+12:33:22,618 INFO kernel:[    0.000000] e820: [mem 0x40000000-0xfeffbfff] available for PCI devices
+12:33:22,618 INFO kernel:[    0.000000] Booting paravirtualized kernel on KVM
+12:33:22,618 INFO kernel:[    0.000000] setup_percpu: NR_CPUS:5120 nr_cpumask_bits:1 nr_cpu_ids:1 nr_node_ids:1
+12:33:22,618 INFO kernel:[    0.000000] PERCPU: Embedded 28 pages/cpu @ffff88003da00000 s82752 r8192 d23744 u2097152
+12:33:22,618 DEBUG kernel:[    0.000000] pcpu-alloc: s82752 r8192 d23744 u2097152 alloc=1*2097152
+12:33:22,618 DEBUG kernel:[    0.000000] pcpu-alloc: [0] 0 
+12:33:22,618 INFO kernel:[    0.000000] KVM setup async PF for cpu 0
+12:33:22,618 INFO kernel:[    0.000000] kvm-stealtime: cpu 0, msr 3da0d000
+12:33:22,618 WARNING kernel:[    0.000000] Built 1 zonelists in Node order, mobility grouping on.  Total pages: 257927
+12:33:22,618 WARNING kernel:[    0.000000] Policy zone: DMA32
+12:33:22,618 NOTICE kernel:[    0.000000] Kernel command line:  ks=file:/centos-7.ks inst.cmdline console=ttyS0 stage2=live:CDLABEL=CentOS\x207\x20x86_64
+12:33:22,618 INFO kernel:[    0.000000] PID hash table entries: 4096 (order: 3, 32768 bytes)
+12:33:22,618 INFO kernel:[    0.000000] xsave: enabled xstate_bv 0x7, cntxt size 0x340
+12:33:22,618 INFO kernel:[    0.000000] Checking aperture...
+12:33:22,618 INFO kernel:[    0.000000] No AGP bridge found
+12:33:22,618 INFO kernel:[    0.000000] Memory: 980680k/1048568k available (6244k kernel code, 392k absent, 67496k reserved, 4178k data, 1604k init)
+12:33:22,618 INFO kernel:[    0.000000] SLUB: HWalign=64, Order=0-3, MinObjects=0, CPUs=1, Nodes=1
+12:33:22,618 INFO kernel:[    0.000000] Hierarchical RCU implementation.
+12:33:22,618 INFO kernel:[    0.000000] 	RCU restricting CPUs from NR_CPUS=5120 to nr_cpu_ids=1.
+12:33:22,618 INFO kernel:[    0.000000] 	Experimental no-CBs for all CPUs
+12:33:22,618 INFO kernel:[    0.000000] 	Experimental no-CBs CPUs: 0.
+12:33:22,618 INFO kernel:[    0.000000] NR_IRQS:327936 nr_irqs:256 16
+12:33:22,618 INFO kernel:[    0.000000] Console: colour *CGA 80x25
+12:33:22,618 INFO kernel:[    0.000000] console [ttyS0] enabled
+12:33:22,618 INFO kernel:[    0.000000] allocated 4194304 bytes of page_cgroup
+12:33:22,618 INFO kernel:[    0.000000] please try 'cgroup_disable=memory' option if you don't want memory cgroups
+12:33:22,618 INFO kernel:[    0.000000] tsc: Detected 2494.334 MHz processor
+12:33:22,618 INFO kernel:[    0.003000] Calibrating delay loop (skipped) preset value.. 4988.66 BogoMIPS (lpj=2494334)
+12:33:22,618 INFO kernel:[    0.004008] pid_max: default: 32768 minimum: 301
+12:33:22,618 INFO kernel:[    0.005032] Security Framework initialized
+12:33:22,618 INFO kernel:[    0.006008] SELinux:  Initializing.
+12:33:22,618 DEBUG kernel:[    0.007021] SELinux:  Starting in permissive mode
+12:33:22,618 INFO kernel:[    0.007125] Dentry cache hash table entries: 131072 (order: 8, 1048576 bytes)
+12:33:22,618 INFO kernel:[    0.009058] Inode-cache hash table entries: 65536 (order: 7, 524288 bytes)
+12:33:22,618 INFO kernel:[    0.010074] Mount-cache hash table entries: 4096
+12:33:22,618 INFO kernel:[    0.011329] Initializing cgroup subsys memory
+12:33:22,618 INFO kernel:[    0.012019] Initializing cgroup subsys devices
+12:33:22,618 INFO kernel:[    0.013011] Initializing cgroup subsys freezer
+12:33:22,618 INFO kernel:[    0.014011] Initializing cgroup subsys net_cls
+12:33:22,618 INFO kernel:[    0.015015] Initializing cgroup subsys blkio
+12:33:22,618 INFO kernel:[    0.016013] Initializing cgroup subsys perf_event
+12:33:22,618 INFO kernel:[    0.017013] Initializing cgroup subsys hugetlb
+12:33:22,618 INFO kernel:[    0.019098] mce: CPU supports 10 MCE banks
+12:33:22,618 INFO kernel:[    0.020052] Last level iTLB entries: 4KB 0, 2MB 0, 4MB 0
+12:33:22,618 INFO kernel:[    0.020052] Last level dTLB entries: 4KB 0, 2MB 0, 4MB 0
+12:33:22,618 INFO kernel:[    0.020052] tlb_flushall_shift: 6
+12:33:22,618 INFO kernel:[    0.035474] Freeing SMP alternatives: 24k freed
+12:33:22,618 INFO kernel:[    0.039623] ACPI: Core revision 20130517
+12:33:22,618 WARNING kernel:[    0.042097] ACPI: All ACPI Tables successfully acquired
+12:33:22,618 INFO kernel:[    0.044180] ftrace: allocating 23909 entries in 94 pages
+12:33:22,618 INFO kernel:[    0.052292] Enabling x2apic
+12:33:22,618 INFO kernel:[    0.053000] Enabled x2apic
+12:33:22,618 INFO kernel:[    0.053008] Switched APIC routing to physical x2apic.
+12:33:22,618 INFO kernel:[    0.055649] ..TIMER: vector=0x30 apic1=0 pin1=2 apic2=-1 pin2=-1
+12:33:22,618 INFO kernel:[    0.056004] smpboot: CPU0: Intel Xeon E312xx (Sandy Bridge) (fam: 06, model: 2a, stepping: 01)
+12:33:22,618 DEBUG kernel:[    0.061014] TSC deadline timer enabled
+12:33:22,618 INFO kernel:[    0.061036] Performance Events: unsupported p6 CPU model 42 no PMU driver, software events only.
+12:33:22,618 INFO kernel:[    0.065603] KVM setup paravirtual spinlock
+12:33:22,618 INFO kernel:[    0.066992] Brought up 1 CPUs
+12:33:22,618 INFO kernel:[    0.067017] smpboot: Total of 1 processors activated (4988.66 BogoMIPS)
+12:33:22,618 WARNING kernel:[    0.068366] NMI watchdog: disabled (cpu0): hardware events not enabled
+12:33:22,618 INFO kernel:[    0.069113] devtmpfs: initialized
+12:33:22,618 INFO kernel:[    0.072951] EVM: security.selinux
+12:33:22,618 INFO kernel:[    0.073005] EVM: security.ima
+12:33:22,618 INFO kernel:[    0.074006] EVM: security.capability
+12:33:22,618 INFO kernel:[    0.075790] atomic64 test passed for x86-64 platform with CX8 and with SSE
+12:33:22,618 INFO kernel:[    0.076165] NET: Registered protocol family 16
+12:33:22,618 INFO kernel:[    0.077195] ACPI: bus type PCI registered
+12:33:22,618 INFO kernel:[    0.078010] acpiphp: ACPI Hot Plug PCI Controller Driver version: 0.5
+12:33:22,618 INFO kernel:[    0.079116] PCI: Using configuration type 1 for base access
+12:33:22,618 INFO kernel:[    0.080707] ACPI: Added _OSI(Module Device)
+12:33:22,618 INFO kernel:[    0.081005] ACPI: Added _OSI(Processor Device)
+12:33:22,618 INFO kernel:[    0.082011] ACPI: Added _OSI(3.0 _SCP Extensions)
+12:33:22,618 INFO kernel:[    0.083012] ACPI: Added _OSI(Processor Aggregator Device)
+12:33:22,618 DEBUG kernel:[    0.084397] ACPI: EC: Look up EC in DSDT
+12:33:22,618 INFO kernel:[    0.085498] ACPI: Interpreter enabled
+12:33:22,618 WARNING kernel:[    0.086017] ACPI Exception: AE_NOT_FOUND, While evaluating Sleep State [\_S1_] (20130517/hwxface-571)
+12:33:22,618 WARNING kernel:[    0.089024] ACPI Exception: AE_NOT_FOUND, While evaluating Sleep State [\_S2_] (20130517/hwxface-571)
+12:33:22,618 WARNING kernel:[    0.092014] ACPI Exception: AE_NOT_FOUND, While evaluating Sleep State [\_S3_] (20130517/hwxface-571)
+12:33:22,618 WARNING kernel:[    0.095008] ACPI Exception: AE_NOT_FOUND, While evaluating Sleep State [\_S4_] (20130517/hwxface-571)
+12:33:22,618 INFO kernel:[    0.098019] ACPI: (supports S0 S5)
+12:33:22,618 INFO kernel:[    0.099004] ACPI: Using IOAPIC for interrupt routing
+12:33:22,618 INFO kernel:[    0.100037] PCI: Using host bridge windows from ACPI; if necessary, use "pci=nocrs" and report a bug
+12:33:22,618 INFO kernel:[    0.102673] ACPI: PCI Root Bridge [PCI0] (domain 0000 [bus 00-ff])
+12:33:22,618 INFO kernel:[    0.103010] acpi PNP0A03:00: _OSC: OS supports [ASPM ClockPM Segments MSI]
+12:33:22,618 INFO kernel:[    0.104014] acpi PNP0A03:00: _OSC failed (AE_NOT_FOUND); disabling ASPM
+12:33:22,618 WARNING kernel:[    0.105099] acpi PNP0A03:00: fail to add MMCONFIG information, can't access extended PCI configuration space under this bridge.
+12:33:22,618 INFO kernel:[    0.106243] acpiphp: Slot [3] registered
+12:33:22,618 INFO kernel:[    0.107035] acpiphp: Slot [5] registered
+12:33:22,618 INFO kernel:[    0.108024] acpiphp: Slot [6] registered
+12:33:22,618 INFO kernel:[    0.109029] acpiphp: Slot [7] registered
+12:33:22,618 INFO kernel:[    0.110030] acpiphp: Slot [8] registered
+12:33:22,618 INFO kernel:[    0.111029] acpiphp: Slot [9] registered
+12:33:22,618 INFO kernel:[    0.112038] acpiphp: Slot [10] registered
+12:33:22,618 INFO kernel:[    0.113024] acpiphp: Slot [11] registered
+12:33:22,618 INFO kernel:[    0.114036] acpiphp: Slot [12] registered
+12:33:22,618 INFO kernel:[    0.115047] acpiphp: Slot [13] registered
+12:33:22,618 INFO kernel:[    0.116022] acpiphp: Slot [14] registered
+12:33:22,618 INFO kernel:[    0.117021] acpiphp: Slot [15] registered
+12:33:22,618 INFO kernel:[    0.118021] acpiphp: Slot [16] registered
+12:33:22,618 INFO kernel:[    0.119041] acpiphp: Slot [17] registered
+12:33:22,618 INFO kernel:[    0.120025] acpiphp: Slot [18] registered
+12:33:22,618 INFO kernel:[    0.121023] acpiphp: Slot [19] registered
+12:33:22,618 INFO kernel:[    0.122031] acpiphp: Slot [20] registered
+12:33:22,618 INFO kernel:[    0.123041] acpiphp: Slot [21] registered
+12:33:22,618 INFO kernel:[    0.124026] acpiphp: Slot [22] registered
+12:33:22,618 INFO kernel:[    0.125048] acpiphp: Slot [23] registered
+12:33:22,618 INFO kernel:[    0.126041] acpiphp: Slot [24] registered
+12:33:22,618 INFO kernel:[    0.127024] acpiphp: Slot [25] registered
+12:33:22,618 INFO kernel:[    0.128027] acpiphp: Slot [26] registered
+12:33:22,618 INFO kernel:[    0.129028] acpiphp: Slot [27] registered
+12:33:22,618 INFO kernel:[    0.130022] acpiphp: Slot [28] registered
+12:33:22,618 INFO kernel:[    0.131024] acpiphp: Slot [29] registered
+12:33:22,618 INFO kernel:[    0.132030] acpiphp: Slot [30] registered
+12:33:22,618 INFO kernel:[    0.133039] acpiphp: Slot [31] registered
+12:33:22,618 INFO kernel:[    0.134013] PCI host bridge to bus 0000:00
+12:33:22,618 INFO kernel:[    0.135007] pci_bus 0000:00: root bus resource [bus 00-ff]
+12:33:22,618 INFO kernel:[    0.136015] pci_bus 0000:00: root bus resource [io  0x0000-0x0cf7]
+12:33:22,618 INFO kernel:[    0.137007] pci_bus 0000:00: root bus resource [io  0x0d00-0xffff]
+12:33:22,618 INFO kernel:[    0.138006] pci_bus 0000:00: root bus resource [mem 0x000a0000-0x000bffff]
+12:33:22,618 INFO kernel:[    0.139005] pci_bus 0000:00: root bus resource [mem 0x40000000-0xfebfffff]
+12:33:22,618 DEBUG kernel:[    0.140052] pci 0000:00:00.0: [8086:1237] type 00 class 0x060000
+12:33:22,618 DEBUG kernel:[    0.140356] pci 0000:00:01.0: [8086:7000] type 00 class 0x060100
+12:33:22,618 DEBUG kernel:[    0.140734] pci 0000:00:01.1: [8086:7010] type 00 class 0x010180
+12:33:22,618 DEBUG kernel:[    0.145872] pci 0000:00:01.1: reg 0x20: [io  0xc1a0-0xc1af]
+12:33:22,618 INFO kernel:[    0.147753] pci 0000:00:01.1: legacy IDE quirk: reg 0x10: [io  0x01f0-0x01f7]
+12:33:22,618 INFO kernel:[    0.148006] pci 0000:00:01.1: legacy IDE quirk: reg 0x14: [io  0x03f6]
+12:33:22,618 INFO kernel:[    0.149006] pci 0000:00:01.1: legacy IDE quirk: reg 0x18: [io  0x0170-0x0177]
+12:33:22,618 INFO kernel:[    0.150005] pci 0000:00:01.1: legacy IDE quirk: reg 0x1c: [io  0x0376]
+12:33:22,618 DEBUG kernel:[    0.151168] pci 0000:00:01.3: [8086:7113] type 00 class 0x068000
+12:33:22,618 INFO kernel:[    0.151465] pci 0000:00:01.3: quirk: [io  0x0600-0x063f] claimed by PIIX4 ACPI
+12:33:22,618 INFO kernel:[    0.152017] pci 0000:00:01.3: quirk: [io  0x0700-0x070f] claimed by PIIX4 SMB
+12:33:22,618 DEBUG kernel:[    0.153210] pci 0000:00:03.0: [10ec:8139] type 00 class 0x020000
+12:33:22,618 DEBUG kernel:[    0.155006] pci 0000:00:03.0: reg 0x10: [io  0xc000-0xc0ff]
+12:33:22,618 DEBUG kernel:[    0.157005] pci 0000:00:03.0: reg 0x14: [mem 0xfebc0000-0xfebc00ff]
+12:33:22,618 DEBUG kernel:[    0.167011] pci 0000:00:03.0: reg 0x30: [mem 0xfeb80000-0xfebbffff pref]
+12:33:22,618 DEBUG kernel:[    0.167177] pci 0000:00:04.0: [8086:2934] type 00 class 0x0c0300
+12:33:22,618 DEBUG kernel:[    0.172006] pci 0000:00:04.0: reg 0x20: [io  0xc100-0xc11f]
+12:33:22,618 DEBUG kernel:[    0.174149] pci 0000:00:04.1: [8086:2935] type 00 class 0x0c0300
+12:33:22,618 DEBUG kernel:[    0.179010] pci 0000:00:04.1: reg 0x20: [io  0xc120-0xc13f]
+12:33:22,618 DEBUG kernel:[    0.181152] pci 0000:00:04.2: [8086:2936] type 00 class 0x0c0300
+12:33:22,618 DEBUG kernel:[    0.186700] pci 0000:00:04.2: reg 0x20: [io  0xc140-0xc15f]
+12:33:22,618 DEBUG kernel:[    0.188907] pci 0000:00:04.7: [8086:293a] type 00 class 0x0c0320
+12:33:22,618 DEBUG kernel:[    0.189723] pci 0000:00:04.7: reg 0x10: [mem 0xfebc1000-0xfebc1fff]
+12:33:22,618 DEBUG kernel:[    0.195890] pci 0000:00:05.0: [1af4:1003] type 00 class 0x078000
+12:33:22,618 DEBUG kernel:[    0.197006] pci 0000:00:05.0: reg 0x10: [io  0xc160-0xc17f]
+12:33:22,618 DEBUG kernel:[    0.199006] pci 0000:00:05.0: reg 0x14: [mem 0xfebc2000-0xfebc2fff]
+12:33:22,618 DEBUG kernel:[    0.209256] pci 0000:00:06.0: [1af4:1002] type 00 class 0x00ff00
+12:33:22,618 DEBUG kernel:[    0.210007] pci 0000:00:06.0: reg 0x10: [io  0xc180-0xc19f]
+12:33:22,618 INFO kernel:[    0.217150] ACPI: PCI Interrupt Link [LNKA] (IRQs 5 *10 11)
+12:33:22,618 INFO kernel:[    0.219000] ACPI: PCI Interrupt Link [LNKB] (IRQs 5 *10 11)
+12:33:22,618 INFO kernel:[    0.219860] ACPI: PCI Interrupt Link [LNKC] (IRQs 5 10 *11)
+12:33:22,618 INFO kernel:[    0.220830] ACPI: PCI Interrupt Link [LNKD] (IRQs 5 10 *11)
+12:33:22,618 INFO kernel:[    0.221970] ACPI: PCI Interrupt Link [LNKS] (IRQs *9)
+12:33:22,618 WARNING kernel:[    0.222628] ACPI: Enabled 16 GPEs in block 00 to 0F
+12:33:22,618 INFO kernel:[    0.223111] vgaarb: loaded
+12:33:22,618 NOTICE kernel:[    0.224068] SCSI subsystem initialized
+12:33:22,618 INFO kernel:[    0.225025] ACPI: bus type USB registered
+12:33:22,618 INFO kernel:[    0.226019] usbcore: registered new interface driver usbfs
+12:33:22,618 INFO kernel:[    0.227020] usbcore: registered new interface driver hub
+12:33:22,618 INFO kernel:[    0.228236] usbcore: registered new device driver usb
+12:33:22,618 INFO kernel:[    0.229121] PCI: Using ACPI for IRQ routing
+12:33:22,618 DEBUG kernel:[    0.230007] PCI: pci_cache_line_size set to 64 bytes
+12:33:22,618 DEBUG kernel:[    0.230150] e820: reserve RAM buffer [mem 0x0009fc00-0x0009ffff]
+12:33:22,618 DEBUG kernel:[    0.230153] e820: reserve RAM buffer [mem 0x3fffe000-0x3fffffff]
+12:33:22,618 INFO kernel:[    0.230249] NetLabel: Initializing
+12:33:22,618 INFO kernel:[    0.231012] NetLabel:  domain hash size = 128
+12:33:22,618 INFO kernel:[    0.232004] NetLabel:  protocols = UNLABELED CIPSOv4
+12:33:22,618 INFO kernel:[    0.233049] NetLabel:  unlabeled traffic allowed by default
+12:33:22,618 INFO kernel:[    0.234036] Switching to clocksource kvm-clock
+12:33:22,618 INFO kernel:[    0.238593] pnp: PnP ACPI init
+12:33:22,618 INFO kernel:[    0.246186] ACPI: bus type PNP registered
+12:33:22,618 DEBUG kernel:[    0.249065] pnp 00:00: Plug and Play ACPI device, IDs PNP0b00 (active)
+12:33:22,618 DEBUG kernel:[    0.249112] pnp 00:01: Plug and Play ACPI device, IDs PNP0303 (active)
+12:33:22,618 DEBUG kernel:[    0.249144] pnp 00:02: Plug and Play ACPI device, IDs PNP0f13 (active)
+12:33:22,618 DEBUG kernel:[    0.249180] pnp 00:03: [dma 2]
+12:33:22,618 DEBUG kernel:[    0.249189] pnp 00:03: Plug and Play ACPI device, IDs PNP0700 (active)
+12:33:22,618 DEBUG kernel:[    0.249259] pnp 00:04: Plug and Play ACPI device, IDs PNP0501 (active)
+12:33:22,618 INFO kernel:[    0.249415] pnp: PnP ACPI: found 5 devices
+12:33:22,618 INFO kernel:[    0.252125] ACPI: bus type PNP unregistered
+12:33:22,618 DEBUG kernel:[    0.260418] pci_bus 0000:00: resource 4 [io  0x0000-0x0cf7]
+12:33:22,618 DEBUG kernel:[    0.260423] pci_bus 0000:00: resource 5 [io  0x0d00-0xffff]
+12:33:22,618 DEBUG kernel:[    0.260426] pci_bus 0000:00: resource 6 [mem 0x000a0000-0x000bffff]
+12:33:22,618 DEBUG kernel:[    0.260429] pci_bus 0000:00: resource 7 [mem 0x40000000-0xfebfffff]
+12:33:22,618 INFO kernel:[    0.260466] NET: Registered protocol family 2
+12:33:22,618 INFO kernel:[    0.263412] TCP established hash table entries: 8192 (order: 4, 65536 bytes)
+12:33:22,618 INFO kernel:[    0.268240] TCP bind hash table entries: 8192 (order: 5, 131072 bytes)
+12:33:22,618 INFO kernel:[    0.273223] TCP: Hash tables configured (established 8192 bind 8192)
+12:33:22,618 INFO kernel:[    0.281732] TCP: reno registered
+12:33:22,618 INFO kernel:[    0.283730] UDP hash table entries: 512 (order: 2, 16384 bytes)
+12:33:22,618 INFO kernel:[    0.288022] UDP-Lite hash table entries: 512 (order: 2, 16384 bytes)
+12:33:22,618 INFO kernel:[    0.292036] NET: Registered protocol family 1
+12:33:22,618 INFO kernel:[    0.294732] pci 0000:00:00.0: Limiting direct PCI/PCI transfers
+12:33:22,618 INFO kernel:[    0.298418] pci 0000:00:01.0: PIIX3: Enabling Passive Release
+12:33:22,618 INFO kernel:[    0.306150] pci 0000:00:01.0: Activating ISA DMA hang workarounds
+12:33:22,618 WARNING kernel:[    0.313797] ACPI: PCI Interrupt Link [LNKD] enabled at IRQ 11
+12:33:22,618 WARNING kernel:[    0.319326] ACPI: PCI Interrupt Link [LNKA] enabled at IRQ 10
+12:33:22,618 WARNING kernel:[    0.324812] ACPI: PCI Interrupt Link [LNKB] enabled at IRQ 10
+12:33:22,618 WARNING kernel:[    0.329887] ACPI: PCI Interrupt Link [LNKC] enabled at IRQ 11
+12:33:22,618 DEBUG kernel:[    0.333982] PCI: CLS 0 bytes, default 64
+12:33:22,618 INFO kernel:[    0.334084] Unpacking initramfs...
+12:33:22,618 INFO kernel:[    3.661917] Freeing initrd memory: 34912k freed
+12:33:22,618 INFO kernel:[    3.669534] microcode: CPU0 sig=0x206a1, pf=0x1, revision=0x1
+12:33:22,618 INFO kernel:[    3.674272] microcode: Microcode Update Driver: v2.00 <tigran@aivazian.fsnet.co.uk>, Peter Oruba
+12:33:22,618 INFO kernel:[    3.681343] futex hash table entries: 256 (order: 2, 16384 bytes)
+12:33:22,618 NOTICE kernel:[    3.686362] Initialise system trusted keyring
+12:33:22,618 INFO kernel:[    3.689949] audit: initializing netlink socket (disabled)
+12:33:22,618 NOTICE kernel:[    3.694164] type=2000 audit(1434630790.874:1): initialized
+12:33:22,618 INFO kernel:[    3.716148] HugeTLB registered 2 MB page size, pre-allocated 0 pages
+12:33:22,618 INFO kernel:[    3.723593] zbud: loaded
+12:33:22,618 NOTICE kernel:[    3.725977] VFS: Disk quotas dquot_6.5.2
+12:33:22,618 WARNING kernel:[    3.734971] Dquot-cache hash table entries: 512 (order 0, 4096 bytes)
+12:33:22,618 INFO kernel:[    3.740645] msgmni has been set to 1983
+12:33:22,618 NOTICE kernel:[    3.743764] Key type big_key registered
+12:33:22,618 DEBUG kernel:[    3.746854] SELinux:  Registering netfilter hooks
+12:33:22,618 INFO kernel:[    3.747233] alg: No test for stdrng (krng)
+12:33:22,618 INFO kernel:[    3.750540] NET: Registered protocol family 38
+12:33:22,618 NOTICE kernel:[    3.754167] Key type asymmetric registered
+12:33:22,618 NOTICE kernel:[    3.757444] Asymmetric key parser 'x509' registered
+12:33:22,618 INFO kernel:[    3.761389] Block layer SCSI generic (bsg) driver version 0.4 loaded (major 252)
+12:33:22,618 INFO kernel:[    3.768017] io scheduler noop registered
+12:33:22,618 INFO kernel:[    3.771260] io scheduler deadline registered (default)
+12:33:22,618 INFO kernel:[    3.775514] io scheduler cfq registered
+12:33:22,618 INFO kernel:[    3.778686] pci_hotplug: PCI Hot Plug PCI Core version: 0.5
+12:33:22,618 INFO kernel:[    3.782611] pciehp: PCI Express Hot Plug Controller Driver version: 0.4
+12:33:22,618 DEBUG kernel:[    3.787483] intel_idle: does not run on family 6 model 42
+12:33:22,618 INFO kernel:[    3.787527] input: Power Button as /devices/LNXSYSTM:00/LNXPWRBN:00/input/input0
+12:33:22,618 INFO kernel:[    3.793548] ACPI: Power Button [PWRF]
+12:33:22,618 INFO kernel:[    3.796642] GHES: HEST is not enabled!
+12:33:22,618 INFO kernel:[    3.799784] Serial: 8250/16550 driver, 4 ports, IRQ sharing enabled
+12:33:22,618 INFO kernel:[    3.826298] 00:04: ttyS0 at I/O 0x3f8 (irq = 4) is a 16550A
+12:33:22,618 INFO kernel:[    3.831306] Non-volatile memory driver v1.3
+12:33:22,618 INFO kernel:[    3.834753] Linux agpgart interface v0.103
+12:33:22,618 INFO kernel:[    3.838243] crash memory driver: version 1.1
+12:33:22,618 INFO kernel:[    3.841755] rdac: device handler registered
+12:33:22,618 INFO kernel:[    3.845142] hp_sw: device handler registered
+12:33:22,618 INFO kernel:[    3.848517] emc: device handler registered
+12:33:22,618 INFO kernel:[    3.851902] alua: device handler registered
+12:33:22,618 INFO kernel:[    3.856404] libphy: Fixed MDIO Bus: probed
+12:33:22,618 INFO kernel:[    3.859725] ehci_hcd: USB 2.0 'Enhanced' Host Controller (EHCI) Driver
+12:33:22,618 INFO kernel:[    3.864138] ehci-pci: EHCI PCI platform driver
+12:33:22,618 INFO kernel:[    3.868180] ehci-pci 0000:00:04.7: EHCI Host Controller
+12:33:22,618 INFO kernel:[    3.871991] ehci-pci 0000:00:04.7: new USB bus registered, assigned bus number 1
+12:33:22,618 INFO kernel:[    3.876747] ehci-pci 0000:00:04.7: irq 11, io mem 0xfebc1000
+12:33:22,618 INFO kernel:[    3.886031] ehci-pci 0000:00:04.7: USB 2.0 started, EHCI 1.00
+12:33:22,618 INFO kernel:[    3.896929] usb usb1: New USB device found, idVendor=1d6b, idProduct=0002
+12:33:22,618 INFO kernel:[    3.903843] usb usb1: New USB device strings: Mfr=3, Product=2, SerialNumber=1
+12:33:22,618 INFO kernel:[    3.909916] usb usb1: Product: EHCI Host Controller
+12:33:22,618 INFO kernel:[    3.913691] usb usb1: Manufacturer: Linux 3.10.0-229.el7.x86_64 ehci_hcd
+12:33:22,618 INFO kernel:[    3.918941] usb usb1: SerialNumber: 0000:00:04.7
+12:33:22,618 INFO kernel:[    3.923784] hub 1-0:1.0: USB hub found
+12:33:22,618 INFO kernel:[    3.926183] hub 1-0:1.0: 6 ports detected
+12:33:22,618 INFO kernel:[    3.928813] ohci_hcd: USB 1.1 'Open' Host Controller (OHCI) Driver
+12:33:22,618 INFO kernel:[    3.934795] ohci-pci: OHCI PCI platform driver
+12:33:22,618 INFO kernel:[    3.939505] uhci_hcd: USB Universal Host Controller Interface driver
+12:33:22,618 INFO kernel:[    3.946519] uhci_hcd 0000:00:04.0: UHCI Host Controller
+12:33:22,618 INFO kernel:[    3.950782] uhci_hcd 0000:00:04.0: new USB bus registered, assigned bus number 2
+12:33:22,618 INFO kernel:[    3.956964] uhci_hcd 0000:00:04.0: detected 2 ports
+12:33:22,618 INFO kernel:[    3.960963] uhci_hcd 0000:00:04.0: irq 11, io base 0x0000c100
+12:33:22,618 INFO kernel:[    3.968431] usb usb2: New USB device found, idVendor=1d6b, idProduct=0001
+12:33:22,618 INFO kernel:[    3.974923] usb usb2: New USB device strings: Mfr=3, Product=2, SerialNumber=1
+12:33:22,618 INFO kernel:[    3.990240] usb usb2: Product: UHCI Host Controller
+12:33:22,618 INFO kernel:[    4.001691] usb usb2: Manufacturer: Linux 3.10.0-229.el7.x86_64 uhci_hcd
+12:33:22,618 INFO kernel:[    4.007186] usb usb2: SerialNumber: 0000:00:04.0
+12:33:22,618 INFO kernel:[    4.012523] hub 2-0:1.0: USB hub found
+12:33:22,618 INFO kernel:[    4.015607] hub 2-0:1.0: 2 ports detected
+12:33:22,618 INFO kernel:[    4.023364] uhci_hcd 0000:00:04.1: UHCI Host Controller
+12:33:22,618 INFO kernel:[    4.027272] uhci_hcd 0000:00:04.1: new USB bus registered, assigned bus number 3
+12:33:22,618 INFO kernel:[    4.034730] uhci_hcd 0000:00:04.1: detected 2 ports
+12:33:22,618 INFO kernel:[    4.038196] uhci_hcd 0000:00:04.1: irq 10, io base 0x0000c120
+12:33:22,618 INFO kernel:[    4.054545] usb usb3: New USB device found, idVendor=1d6b, idProduct=0001
+12:33:22,618 INFO kernel:[    4.061539] usb usb3: New USB device strings: Mfr=3, Product=2, SerialNumber=1
+12:33:22,618 INFO kernel:[    4.073154] usb usb3: Product: UHCI Host Controller
+12:33:22,618 INFO kernel:[    4.077205] usb usb3: Manufacturer: Linux 3.10.0-229.el7.x86_64 uhci_hcd
+12:33:22,618 INFO kernel:[    4.093878] usb usb3: SerialNumber: 0000:00:04.1
+12:33:22,618 INFO kernel:[    4.097646] hub 3-0:1.0: USB hub found
+12:33:22,618 INFO kernel:[    4.110081] hub 3-0:1.0: 2 ports detected
+12:33:22,618 INFO kernel:[    4.115634] uhci_hcd 0000:00:04.2: UHCI Host Controller
+12:33:22,618 INFO kernel:[    4.131629] uhci_hcd 0000:00:04.2: new USB bus registered, assigned bus number 4
+12:33:22,618 INFO kernel:[    4.143647] uhci_hcd 0000:00:04.2: detected 2 ports
+12:33:22,618 INFO kernel:[    4.154984] uhci_hcd 0000:00:04.2: irq 10, io base 0x0000c140
+12:33:22,618 INFO kernel:[    4.159629] usb usb4: New USB device found, idVendor=1d6b, idProduct=0001
+12:33:22,618 INFO kernel:[    4.169125] usb usb4: New USB device strings: Mfr=3, Product=2, SerialNumber=1
+12:33:22,618 INFO kernel:[    4.177419] usb usb4: Product: UHCI Host Controller
+12:33:22,618 INFO kernel:[    4.180809] usb usb4: Manufacturer: Linux 3.10.0-229.el7.x86_64 uhci_hcd
+12:33:22,618 INFO kernel:[    4.190727] usb usb4: SerialNumber: 0000:00:04.2
+12:33:22,618 INFO kernel:[    4.194640] hub 4-0:1.0: USB hub found
+12:33:22,618 INFO kernel:[    4.197754] hub 4-0:1.0: 2 ports detected
+12:33:22,618 INFO kernel:[    4.203657] usbcore: registered new interface driver usbserial
+12:33:22,618 INFO kernel:[    4.207537] usbcore: registered new interface driver usbserial_generic
+12:33:22,618 INFO kernel:[    4.224834] usbserial: USB Serial support registered for generic
+12:33:22,618 INFO kernel:[    4.237514] i8042: PNP: PS/2 Controller [PNP0303:KBD,PNP0f13:MOU] at 0x60,0x64 irq 1,12
+12:33:22,618 INFO kernel:[    4.244541] serio: i8042 KBD port at 0x60,0x64 irq 1
+12:33:22,618 INFO kernel:[    4.247657] serio: i8042 AUX port at 0x60,0x64 irq 12
+12:33:22,618 INFO kernel:[    4.251101] mousedev: PS/2 mouse device common for all mice
+12:33:22,618 INFO kernel:[    4.255286] input: AT Translated Set 2 keyboard as /devices/platform/i8042/serio0/input/input1
+12:33:22,618 INFO kernel:[    4.261524] rtc_cmos 00:00: RTC can wake from S4
+12:33:22,618 INFO kernel:[    4.267099] rtc_cmos 00:00: rtc core: registered rtc_cmos as rtc0
+12:33:22,618 INFO kernel:[    4.272878] rtc_cmos 00:00: alarms up to one day, 114 bytes nvram
+12:33:22,618 INFO kernel:[    4.277252] cpuidle: using governor menu
+12:33:22,618 INFO kernel:[    4.280453] hidraw: raw HID events driver (C) Jiri Kosina
+12:33:22,618 INFO kernel:[    4.284924] usbcore: registered new interface driver usbhid
+12:33:22,618 INFO kernel:[    4.295277] usbhid: USB HID core driver
+12:33:22,618 INFO kernel:[    4.304809] drop_monitor: Initializing network drop monitor service
+12:33:22,618 INFO kernel:[    4.312207] TCP: cubic registered
+12:33:22,618 INFO kernel:[    4.314906] Initializing XFRM netlink socket
+12:33:22,618 INFO kernel:[    4.318370] NET: Registered protocol family 10
+12:33:22,618 INFO kernel:[    4.328585] NET: Registered protocol family 17
+12:33:22,618 NOTICE kernel:[    4.332433] Loading compiled-in X.509 certificates
+12:33:22,618 NOTICE kernel:[    4.335783] Loaded X.509 cert 'CentOS Linux kpatch signing key: ea0413152cde1d98ebdca3fe6f0230904c9ef717'
+12:33:22,618 NOTICE kernel:[    4.342044] Loaded X.509 cert 'CentOS Linux Driver update signing key: 7f421ee0ab69461574bb358861dbe77762a4201b'
+12:33:22,618 NOTICE kernel:[    4.349128] Loaded X.509 cert 'CentOS Linux kernel signing key: a62a0e1d6a6e484e9bfd7368af34081048e535e5'
+12:33:22,618 INFO kernel:[    4.357033] registered taskstats version 1
+12:33:22,618 NOTICE kernel:[    4.361760] Key type trusted registered
+12:33:22,618 NOTICE kernel:[    4.366190] Key type encrypted registered
+12:33:22,618 INFO kernel:[    4.371025] IMA: No TPM chip found, activating TPM-bypass!
+12:33:22,618 INFO kernel:[    4.374868] rtc_cmos 00:00: setting system clock to 2015-06-18 12:33:12 UTC (1434630792)
+12:33:22,618 INFO kernel:[    4.382193] Freeing unused kernel memory: 1604k freed
+12:33:22,618 INFO kernel:[    4.667171] device-mapper: uevent: version 1.0.3
+12:33:22,618 INFO kernel:[    4.672341] tsc: Refined TSC clocksource calibration: 2494.407 MHz
+12:33:22,618 INFO kernel:[    4.689972] device-mapper: ioctl: 4.29.0-ioctl (2014-10-28) initialised: dm-devel@redhat.com
+12:33:22,618 INFO kernel:[    4.703840] device-mapper: multipath: version 1.7.0 loaded
+12:33:22,618 INFO kernel:[    4.759099] BIOS EDD facility v0.16 2004-Jun-25, 1 devices found
+12:33:22,618 INFO kernel:[    5.102938] input: ImExPS/2 Generic Explorer Mouse as /devices/platform/i8042/serio1/input/input2
+12:33:22,618 INFO kernel:[    5.338619] squashfs: version 4.0 (2009/01/31) Phillip Lougher
+12:33:22,618 INFO kernel:[    5.347494] Loading iSCSI transport class v2.0-870.
+12:33:22,618 NOTICE kernel:[    5.354899] iscsi: registered transport (tcp)
+12:33:22,618 INFO kernel:[    5.387550] FDC 0 is a S82078B
+12:33:22,618 INFO kernel:[    5.393491] No iBFT detected.
+12:33:22,618 INFO kernel:[    5.397609] md: raid0 personality registered for level 0
+12:33:22,618 INFO kernel:[    5.404185] md: raid1 personality registered for level 1
+12:33:22,618 INFO kernel:[    5.409611] async_tx: api initialized (async)
+12:33:22,618 INFO kernel:[    5.413988] xor: automatically using best checksumming function:
+12:33:22,618 INFO kernel:[    5.427009]    avx       : 22616.000 MB/sec
+12:33:22,618 WARNING kernel:[    5.448011] raid6: sse2x1    7085 MB/s
+12:33:22,618 WARNING kernel:[    5.468014] raid6: sse2x2    8632 MB/s
+12:33:22,618 WARNING kernel:[    5.487013] raid6: sse2x4    9750 MB/s
+12:33:22,618 WARNING kernel:[    5.489650] raid6: using algorithm sse2x4 (9750 MB/s)
+12:33:22,618 WARNING kernel:[    5.493546] raid6: using ssse3x2 recovery algorithm
+12:33:22,618 INFO kernel:[    5.502900] md: raid6 personality registered for level 6
+12:33:22,618 INFO kernel:[    5.507506] md: raid5 personality registered for level 5
+12:33:22,618 INFO kernel:[    5.512032] md: raid4 personality registered for level 4
+12:33:22,618 INFO kernel:[    5.521098] md: raid10 personality registered for level 10
+12:33:22,618 INFO kernel:[    5.526913] md: linear personality registered for level -1
+12:33:22,618 INFO kernel:[    5.550401] device-mapper: multipath round-robin: version 1.0.0 loaded
+12:33:22,618 INFO kernel:[    5.559911] sha256_ssse3: Using AVX optimized SHA-256 implementation
+12:33:22,618 INFO kernel:[    5.585260] RPC: Registered named UNIX socket transport module.
+12:33:22,618 INFO kernel:[    5.590146] RPC: Registered udp transport module.
+12:33:22,618 INFO kernel:[    5.593041] RPC: Registered tcp transport module.
+12:33:22,618 INFO kernel:[    5.595867] RPC: Registered tcp NFSv4.1 backchannel transport module.
+12:33:22,618 INFO kernel:[    5.783137] 8139cp: 8139cp: 10/100 PCI Ethernet driver v1.3 (Mar 22, 2004)
+12:33:22,618 DEBUG kernel:[    5.798514] libata version 3.00 loaded.
+12:33:22,618 INFO kernel:[    5.800506] 8139cp 0000:00:03.0 eth0: RTL-8139C+ at 0xffffc900001c8000, 52:54:00:b8:d7:bc, IRQ 11
+12:33:22,618 DEBUG kernel:[    5.839228] ata_piix 0000:00:01.1: version 2.13
+12:33:22,618 INFO kernel:[    5.842322] 8139too: 8139too Fast Ethernet driver 0.9.28
+12:33:22,618 INFO kernel:[    5.845829] scsi host0: ata_piix
+12:33:22,618 INFO kernel:[    5.848949] scsi host1: ata_piix
+12:33:22,618 INFO kernel:[    5.853666] ata1: PATA max MWDMA2 cmd 0x1f0 ctl 0x3f6 bmdma 0xc1a0 irq 14
+12:33:22,618 INFO kernel:[    5.858465] ata2: PATA max MWDMA2 cmd 0x170 ctl 0x376 bmdma 0xc1a8 irq 15
+12:33:22,618 INFO kernel:[    5.880188] alg: No test for __gcm-aes-aesni (__driver-gcm-aes-aesni)
+12:33:22,618 INFO kernel:[    5.901073] alg: No test for crc32 (crc32-pclmul)
+12:33:22,618 INFO kernel:[    6.015637] ata1.00: ATA-7: QEMU HARDDISK, 1.5.3, max UDMA/100
+12:33:22,618 INFO kernel:[    6.020841] ata1.00: 6291456 sectors, multi 16: LBA48 
+12:33:22,618 INFO kernel:[    6.026062] ata1.01: ATAPI: QEMU DVD-ROM, 1.5.3, max UDMA/100
+12:33:22,618 INFO kernel:[    6.035406] ata1.00: configured for MWDMA2
+12:33:22,618 INFO kernel:[    6.039735] ata1.01: configured for MWDMA2
+12:33:22,618 NOTICE kernel:[    6.042675] scsi 0:0:0:0: Direct-Access     ATA      QEMU HARDDISK    1.5. PQ: 0 ANSI: 5
+12:33:22,618 NOTICE kernel:[    6.049372] scsi 0:0:1:0: CD-ROM            QEMU     QEMU DVD-ROM     1.5. PQ: 0 ANSI: 5
+12:33:22,618 NOTICE kernel:[    6.064888] sd 0:0:0:0: [sda] 6291456 512-byte logical blocks: (3.22 GB/3.00 GiB)
+12:33:22,618 INFO kernel:[    6.071330] sr 0:0:1:0: [sr0] scsi3-mmc drive: 4x/4x cd/rw xa/form2 tray
+12:33:22,618 INFO kernel:[    6.080634] cdrom: Uniform CD-ROM driver Revision: 3.20
+12:33:22,618 NOTICE kernel:[    6.083890] sd 0:0:0:0: [sda] Write Protect is off
+12:33:22,618 DEBUG kernel:[    6.086925] sd 0:0:0:0: [sda] Mode Sense: 00 3a 00 00
+12:33:22,618 NOTICE kernel:[    6.087436] sd 0:0:0:0: [sda] Write cache: enabled, read cache: enabled, doesn't support DPO or FUA
+12:33:22,618 INFO kernel:[    6.094502]  sda: unknown partition table
+12:33:22,618 DEBUG kernel:[    6.097185] sr 0:0:1:0: Attached scsi CD-ROM sr0
+12:33:22,618 NOTICE kernel:[    6.098249] sd 0:0:0:0: [sda] Attached SCSI disk
+12:33:22,618 INFO kernel:[    6.460650] 8139cp 0000:00:03.0 ens3: link up, 100Mbps, full-duplex, lpa 0x05E1
+12:33:22,618 DEBUG kernel:[   10.933483] ISO 9660 Extensions: Microsoft Joliet Level 3
+12:33:22,618 DEBUG kernel:[   10.936219] ISO 9660 Extensions: RRIP_1991A
+12:33:22,618 INFO kernel:[   10.992131] loop: module loaded
+12:33:22,618 INFO kernel:[   11.726497] EXT4-fs (dm-0): mounted filesystem with ordered data mode. Opts: (null)
+12:33:22,618 DEBUG kernel:[   12.564022] SELinux: 2048 avtab hash slots, 111514 rules.
+12:33:22,618 DEBUG kernel:[   12.580508] SELinux: 2048 avtab hash slots, 111514 rules.
+12:33:22,618 DEBUG kernel:[   12.606720] SELinux:  8 users, 102 roles, 4977 types, 295 bools, 1 sens, 1024 cats
+12:33:22,618 DEBUG kernel:[   12.606725] SELinux:  83 classes, 111514 rules
+12:33:22,618 DEBUG kernel:[   12.613184] SELinux:  Completing initialization.
+12:33:22,618 DEBUG kernel:[   12.613187] SELinux:  Setting up existing superblocks.
+12:33:22,618 DEBUG kernel:[   12.613193] SELinux: initialized (dev sysfs, type sysfs), uses genfs_contexts
+12:33:22,618 DEBUG kernel:[   12.613197] SELinux: initialized (dev rootfs, type rootfs), uses genfs_contexts
+12:33:22,618 DEBUG kernel:[   12.613202] SELinux: initialized (dev bdev, type bdev), uses genfs_contexts
+12:33:22,618 DEBUG kernel:[   12.613206] SELinux: initialized (dev proc, type proc), uses genfs_contexts
+12:33:22,618 DEBUG kernel:[   12.613238] SELinux: initialized (dev tmpfs, type tmpfs), uses transition SIDs
+12:33:22,618 DEBUG kernel:[   12.613247] SELinux: initialized (dev devtmpfs, type devtmpfs), uses transition SIDs
+12:33:22,618 DEBUG kernel:[   12.613534] SELinux: initialized (dev sockfs, type sockfs), uses task SIDs
+12:33:22,618 DEBUG kernel:[   12.613537] SELinux: initialized (dev debugfs, type debugfs), uses genfs_contexts
+12:33:22,618 DEBUG kernel:[   12.613945] SELinux: initialized (dev pipefs, type pipefs), uses task SIDs
+12:33:22,618 DEBUG kernel:[   12.613951] SELinux: initialized (dev anon_inodefs, type anon_inodefs), uses genfs_contexts
+12:33:22,618 DEBUG kernel:[   12.613953] SELinux: initialized (dev aio, type aio), not configured for labeling
+12:33:22,618 DEBUG kernel:[   12.613955] SELinux: initialized (dev devpts, type devpts), uses transition SIDs
+12:33:22,618 DEBUG kernel:[   12.613967] SELinux: initialized (dev hugetlbfs, type hugetlbfs), uses transition SIDs
+12:33:22,618 DEBUG kernel:[   12.613992] SELinux: initialized (dev mqueue, type mqueue), uses transition SIDs
+12:33:22,618 DEBUG kernel:[   12.613998] SELinux: initialized (dev selinuxfs, type selinuxfs), uses genfs_contexts
+12:33:22,618 DEBUG kernel:[   12.614024] SELinux: initialized (dev securityfs, type securityfs), uses genfs_contexts
+12:33:22,618 DEBUG kernel:[   12.614027] SELinux: initialized (dev sysfs, type sysfs), uses genfs_contexts
+12:33:22,618 DEBUG kernel:[   12.614194] SELinux: initialized (dev tmpfs, type tmpfs), uses transition SIDs
+12:33:22,618 DEBUG kernel:[   12.614200] SELinux: initialized (dev tmpfs, type tmpfs), uses transition SIDs
+12:33:22,618 DEBUG kernel:[   12.614317] SELinux: initialized (dev tmpfs, type tmpfs), uses transition SIDs
+12:33:22,618 DEBUG kernel:[   12.614334] SELinux: initialized (dev cgroup, type cgroup), uses genfs_contexts
+12:33:22,618 DEBUG kernel:[   12.614344] SELinux: initialized (dev pstore, type pstore), uses genfs_contexts
+12:33:22,618 DEBUG kernel:[   12.614346] SELinux: initialized (dev cgroup, type cgroup), uses genfs_contexts
+12:33:22,618 DEBUG kernel:[   12.614351] SELinux: initialized (dev cgroup, type cgroup), uses genfs_contexts
+12:33:22,618 DEBUG kernel:[   12.614356] SELinux: initialized (dev cgroup, type cgroup), uses genfs_contexts
+12:33:22,618 DEBUG kernel:[   12.614362] SELinux: initialized (dev cgroup, type cgroup), uses genfs_contexts
+12:33:22,618 DEBUG kernel:[   12.614366] SELinux: initialized (dev cgroup, type cgroup), uses genfs_contexts
+12:33:22,618 DEBUG kernel:[   12.614370] SELinux: initialized (dev cgroup, type cgroup), uses genfs_contexts
+12:33:22,618 DEBUG kernel:[   12.614380] SELinux: initialized (dev cgroup, type cgroup), uses genfs_contexts
+12:33:22,618 DEBUG kernel:[   12.614387] SELinux: initialized (dev cgroup, type cgroup), uses genfs_contexts
+12:33:22,618 DEBUG kernel:[   12.614390] SELinux: initialized (dev cgroup, type cgroup), uses genfs_contexts
+12:33:22,618 DEBUG kernel:[   12.614396] SELinux: initialized (dev rpc_pipefs, type rpc_pipefs), uses genfs_contexts
+12:33:22,618 DEBUG kernel:[   12.614401] SELinux: initialized (dev configfs, type configfs), uses genfs_contexts
+12:33:22,618 DEBUG kernel:[   12.614405] SELinux: initialized (dev sr0, type iso9660), uses genfs_contexts
+12:33:22,618 DEBUG kernel:[   12.614419] SELinux: initialized (dev loop0, type squashfs), uses xattr
+12:33:22,618 DEBUG kernel:[   12.614438] SELinux: initialized (dev dm-0, type ext4), uses xattr
+12:33:22,618 NOTICE kernel:[   12.615928] type=1403 audit(1434630800.740:2): policy loaded auid=4294967295 ses=4294967295
+12:33:22,618 DEBUG kernel:[   12.982997] SELinux: initialized (dev autofs, type autofs), uses genfs_contexts
+12:33:22,618 DEBUG kernel:[   13.013033] SELinux: initialized (dev hugetlbfs, type hugetlbfs), uses transition SIDs
+12:33:22,618 DEBUG kernel:[   13.120580] SELinux: initialized (dev tmpfs, type tmpfs), uses transition SIDs
+12:33:22,618 INFO kernel:[   13.681297] piix4_smbus 0000:00:01.3: SMBus Host Controller at 0x700, revision 0
+12:33:22,618 INFO kernel:[   13.712130] input: PC Speaker as /devices/platform/pcspkr/input/input3
+12:33:22,618 DEBUG kernel:[   13.776387] virtio-pci 0000:00:05.0: irq 40 for MSI/MSI-X
+12:33:22,618 DEBUG kernel:[   13.776407] virtio-pci 0000:00:05.0: irq 41 for MSI/MSI-X
+12:33:22,618 ERR kernel:[   13.812669] intel_rapl: no valid rapl domains found in package 0
+12:33:22,654 NOTICE kernel:[   14.527298] type=1400 audit(1434630802.652:3): avc:  denied  { write } for  pid=1076 comm="firewalld" name="python2.7" dev="dm-0" ino=41915 scontext=system_u:system_r:firewalld_t:s0 tcontext=system_u:object_r:lib_t:s0 tclass=dir
+12:33:22,654 NOTICE kernel:[   14.527306] type=1400 audit(1434630802.652:4): avc:  denied  { remove_name } for  pid=1076 comm="firewalld" name="site.pyc" dev="dm-0" ino=42288 scontext=system_u:system_r:firewalld_t:s0 tcontext=system_u:object_r:lib_t:s0 tclass=dir
+12:33:22,654 NOTICE kernel:[   14.527312] type=1400 audit(1434630802.652:5): avc:  denied  { unlink } for  pid=1076 comm="firewalld" name="site.pyc" dev="dm-0" ino=42288 scontext=system_u:system_r:firewalld_t:s0 tcontext=unconfined_u:object_r:lib_t:s0 tclass=lnk_file
+12:33:22,655 NOTICE kernel:[   14.529984] type=1400 audit(1434630802.654:6): avc:  denied  { add_name } for  pid=1076 comm="firewalld" name="site.pyc" scontext=system_u:system_r:firewalld_t:s0 tcontext=system_u:object_r:lib_t:s0 tclass=dir
+12:33:22,655 NOTICE kernel:[   14.530008] type=1400 audit(1434630802.654:7): avc:  denied  { create } for  pid=1076 comm="firewalld" name="site.pyc" scontext=system_u:system_r:firewalld_t:s0 tcontext=system_u:object_r:lib_t:s0 tclass=file
+12:33:22,656 NOTICE kernel:[   14.530193] type=1400 audit(1434630802.655:8): avc:  denied  { write } for  pid=1076 comm="firewalld" path="/usr/lib64/python2.7/site.pyc" dev="dm-0" ino=42288 scontext=system_u:system_r:firewalld_t:s0 tcontext=system_u:object_r:lib_t:s0 tclass=file
+12:33:23,538 INFO kernel:[   15.412837] Ebtables v2.0 registered
+12:33:23,577 NOTICE kernel:[   15.451248] Bridge firewalling registered
+12:33:23,889 CRIT firewalld: 2015-06-18 12:33:23 FATAL ERROR: No IPv4 and IPv6 firewall.
+12:33:23,889 ERR firewalld: 2015-06-18 12:33:23 ERROR: Raising SystemExit in run_server
+12:33:24,329 INFO NetworkManager: <info>  NetworkManager (version 1.0.0-14.git20150121.b4ea599c.el7) is starting...
+12:33:24,330 INFO NetworkManager: <info>  Read config: /etc/NetworkManager/NetworkManager.conf and conf.d: 90-anaconda-no-auto-default.conf
+12:33:24,330 INFO NetworkManager: <info>  WEXT support is disabled
+12:33:24,344 WARNING NetworkManager: <warn>  Could not get hostname: failed to read /etc/sysconfig/network
+12:33:24,345 INFO NetworkManager: <info>  Acquired D-Bus service com.redhat.ifcfgrh1
+12:33:24,345 INFO NetworkManager: <info>  Loaded plugin ifcfg-rh: (c) 2007 - 2013 Red Hat, Inc.  To report bugs please use the NetworkManager mailing list.
+12:33:24,345 INFO NetworkManager: <info>  Loaded plugin keyfile: (c) 2007 - 2013 Red Hat, Inc.  To report bugs please use the NetworkManager mailing list.
+12:33:24,346 INFO NetworkManager: <info>  parsing /etc/sysconfig/network-scripts/ifcfg-lo ... 
+12:33:24,346 INFO NetworkManager: <info>  parsing /etc/sysconfig/network-scripts/ifcfg-ens3 ... 
+12:33:24,347 INFO NetworkManager: <info>      read connection 'ens3'
+12:33:24,348 INFO NetworkManager: <info>  monitoring kernel firmware directory '/lib/firmware'.
+12:33:24,355 INFO NetworkManager: <info>  Loaded device plugin: /usr/lib64/NetworkManager/libnm-device-plugin-team.so
+12:33:24,355 INFO NetworkManager: <info>  Loaded device plugin: /usr/lib64/NetworkManager/libnm-device-plugin-wifi.so
+12:33:24,360 INFO NetworkManager: <info>  WiFi enabled by radio killswitch; enabled by state file
+12:33:24,360 INFO NetworkManager: <info>  WWAN enabled by radio killswitch; enabled by state file
+12:33:24,360 INFO NetworkManager: <info>  WiMAX enabled by radio killswitch; enabled by state file
+12:33:24,360 INFO NetworkManager: <info>  Networking is enabled by state file
+12:33:24,361 INFO NetworkManager: <info>  (lo): link connected
+12:33:24,361 INFO NetworkManager: <info>  (lo): carrier is ON
+12:33:24,362 INFO NetworkManager: <info>  (lo): new Generic device (driver: 'unknown' ifindex: 1)
+12:33:24,362 INFO NetworkManager: <info>  (lo): exported as /org/freedesktop/NetworkManager/Devices/0
+12:33:24,419 INFO NetworkManager: <info>  (ens3): link connected
+12:33:24,420 INFO NetworkManager: <info>  (ens3): carrier is ON
+12:33:24,420 INFO NetworkManager: <info>  (ens3): new Ethernet device (driver: '8139cp' ifindex: 2)
+12:33:24,421 INFO NetworkManager: <info>  (ens3): exported as /org/freedesktop/NetworkManager/Devices/1
+12:33:24,423 INFO NetworkManager: <info>  (ens3): found matching connection 'ens3'
+12:33:24,423 INFO NetworkManager: <info>  (ens3): device state change: unmanaged -> unavailable (reason 'connection-assumed') [10 20 41]
+12:33:24,424 INFO NetworkManager: <info>  (ens3): device state change: unavailable -> disconnected (reason 'connection-assumed') [20 30 41]
+12:33:24,424 INFO NetworkManager: <info>  startup complete
+12:33:24,425 INFO NetworkManager: <info>  (ens3): Activation: starting connection 'ens3'
+12:33:24,425 INFO NetworkManager: <info>  (ens3): Activation: Stage 1 of 5 (Device Prepare) scheduled...
+12:33:24,426 NOTICE dbus: [system] Activating via systemd: service name='org.freedesktop.PolicyKit1' unit='polkit.service'
+12:33:24,431 INFO NetworkManager: <info>  (ens3): Activation: Stage 1 of 5 (Device Prepare) started...
+12:33:24,431 INFO NetworkManager: <info>  (ens3): device state change: disconnected -> prepare (reason 'none') [30 40 0]
+12:33:24,431 INFO NetworkManager: <info>  (ens3): Activation: Stage 2 of 5 (Device Configure) scheduled...
+12:33:24,432 INFO NetworkManager: <info>  (ens3): Activation: Stage 1 of 5 (Device Prepare) complete.
+12:33:24,437 INFO NetworkManager: <info>  (ens3): Activation: Stage 2 of 5 (Device Configure) starting...
+12:33:24,437 INFO NetworkManager: <info>  (ens3): device state change: prepare -> config (reason 'none') [40 50 0]
+12:33:24,441 INFO NetworkManager: <info>  (ens3): Activation: Stage 2 of 5 (Device Configure) successful.
+12:33:24,441 INFO NetworkManager: <info>  (ens3): Activation: Stage 3 of 5 (IP Configure Start) scheduled.
+12:33:24,441 INFO NetworkManager: <info>  (ens3): Activation: Stage 2 of 5 (Device Configure) complete.
+12:33:24,441 INFO NetworkManager: <info>  (ens3): Activation: Stage 3 of 5 (IP Configure Start) started...
+12:33:24,442 INFO NetworkManager: <info>  (ens3): device state change: config -> ip-config (reason 'none') [50 70 0]
+12:33:24,444 INFO NetworkManager: <info>  Activation (ens3) Beginning DHCPv4 transaction (timeout in 45 seconds)
+12:33:24,545 INFO NetworkManager: <info>  dhclient started with pid 1132
+12:33:24,550 INFO NetworkManager: <info>  (ens3): Activation: Stage 3 of 5 (IP Configure Start) complete.
+12:33:24,630 INFO polkitd: Started polkitd version 0.112
+12:33:24,843 NOTICE dbus: [system] Successfully activated service 'org.freedesktop.PolicyKit1'
+12:33:24,991 INFO dhclient: DHCPREQUEST on ens3 to 255.255.255.255 port 67 (xid=0x545c4af8)
+12:33:25,000 INFO dhclient: DHCPACK from 192.168.122.1 (xid=0x545c4af8)
+12:33:25,012 INFO NetworkManager: <info>    address 192.168.122.207
+12:33:25,012 INFO NetworkManager: <info>    plen 24 (255.255.255.0)
+12:33:25,012 INFO NetworkManager: <info>    gateway 192.168.122.1
+12:33:25,012 INFO NetworkManager: <info>    server identifier 192.168.122.1
+12:33:25,012 INFO NetworkManager: <info>    lease time 3600
+12:33:25,012 INFO NetworkManager: <info>    nameserver '192.168.122.1'
+12:33:25,012 INFO NetworkManager: <info>  (ens3): DHCPv4 state changed unknown -> bound
+12:33:25,012 INFO NetworkManager: <info>  (ens3): Activation: Stage 5 of 5 (IPv4 Configure Commit) scheduled...
+12:33:25,013 INFO NetworkManager: <info>  (ens3): Activation: Stage 5 of 5 (IPv4 Commit) started...
+12:33:25,013 INFO NetworkManager: <info>  (ens3): device state change: ip-config -> ip-check (reason 'none') [70 80 0]
+12:33:25,013 INFO NetworkManager: <info>  (ens3): Activation: Stage 5 of 5 (IPv4 Commit) complete.
+12:33:25,014 INFO NetworkManager: <info>  (ens3): device state change: ip-check -> secondaries (reason 'none') [80 90 0]
+12:33:25,014 INFO NetworkManager: <info>  (ens3): device state change: secondaries -> activated (reason 'none') [90 100 0]
+12:33:25,014 INFO NetworkManager: <info>  NetworkManager state is now CONNECTED_LOCAL
+12:33:25,014 INFO NetworkManager: <info>  NetworkManager state is now CONNECTED_GLOBAL
+12:33:25,014 INFO NetworkManager: <info>  Policy set 'ens3' (ens3) as default for IPv4 routing and DNS.
+12:33:25,020 INFO NetworkManager: <info>  (ens3): Activation: successful, device activated.
+12:33:25,021 NOTICE dbus: [system] Activating via systemd: service name='org.freedesktop.nm_dispatcher' unit='dbus-org.freedesktop.nm-dispatcher.service'
+12:33:25,024 INFO dhclient: bound to 192.168.122.207 -- renewal in 1712 seconds.
+12:33:25,079 NOTICE dbus: [system] Successfully activated service 'org.freedesktop.nm_dispatcher'
+12:33:25,084 NOTICE nm-dispatcher: Dispatching action 'up' for ens3
+12:33:27,179 INFO rsyslogd: [origin software="rsyslogd" swVersion="7.4.7" x-pid="1079" x-info="http://www.rsyslog.com"] exiting on signal 15.
+12:33:27,196 INFO rsyslogd: [origin software="rsyslogd" swVersion="7.4.7" x-pid="1190" x-info="http://www.rsyslog.com"] start
+12:33:27,204 NOTICE kernel:[   19.053707] type=1400 audit(1434630807.178:9): avc:  denied  { write } for  pid=1079 comm="rsyslogd" name="/" dev="dm-0" ino=2 scontext=system_u:system_r:syslogd_t:s0 tcontext=system_u:object_r:root_t:s0 tclass=dir
+12:33:27,204 NOTICE kernel:[   19.053714] type=1400 audit(1434630807.178:10): avc:  denied  { add_name } for  pid=1079 comm="rsyslogd" name="xserver-statefile" scontext=system_u:system_r:syslogd_t:s0 tcontext=system_u:object_r:root_t:s0 tclass=dir
+12:33:27,204 NOTICE kernel:[   19.053795] type=1400 audit(1434630807.178:11): avc:  denied  { create } for  pid=1079 comm="rsyslogd" name="xserver-statefile" scontext=system_u:system_r:syslogd_t:s0 tcontext=system_u:object_r:root_t:s0 tclass=file
+12:33:27,831 WARNING kernel:[   19.706108] audit_printk_skb: 27 callbacks suppressed
+12:33:27,831 NOTICE kernel:[   19.706111] type=1400 audit(1434630807.831:21): avc:  denied  { read write } for  pid=1226 comm="loadkeys" path="/dev/pts/0" dev="devpts" ino=3 scontext=system_u:system_r:loadkeys_t:s0 tcontext=system_u:object_r:devpts_t:s0 tclass=chr_file
+12:33:27,833 NOTICE kernel:[   19.707560] type=1400 audit(1434630807.832:22): avc:  denied  { open } for  pid=1226 comm="loadkeys" path="/dev/pts/0" dev="devpts" ino=3 scontext=system_u:system_r:loadkeys_t:s0 tcontext=system_u:object_r:devpts_t:s0 tclass=chr_file
+12:33:27,833 NOTICE kernel:[   19.707575] type=1400 audit(1434630807.832:23): avc:  denied  { ioctl } for  pid=1226 comm="loadkeys" path="/dev/pts/0" dev="devpts" ino=3 scontext=system_u:system_r:loadkeys_t:s0 tcontext=system_u:object_r:devpts_t:s0 tclass=chr_file
+12:33:27,932 NOTICE dbus: [system] Activating via systemd: service name='org.freedesktop.locale1' unit='dbus-org.freedesktop.locale1.service'
+12:33:27,951 NOTICE dbus: [system] Successfully activated service 'org.freedesktop.locale1'
+12:33:27,968 NOTICE kernel:[   19.842224] type=1107 audit(1434630807.967:24): pid=1117 uid=81 auid=4294967295 ses=4294967295 subj=system_u:system_r:system_dbusd_t:s0-s0:c0.c1023 msg='avc:  denied  { send_msg } for msgtype=method_return dest=:1.6 spid=1230 tpid=1131 scontext=system_u:system_r:systemd_localed_t:s0 tcontext=system_u:system_r:initrc_t:s0 tclass=dbus
+12:33:27,968 NOTICE kernel:[   19.842224]  exe="/usr/bin/dbus-daemon" sauid=81 hostname=? addr=? terminal=?'
+12:33:28,109 INFO kernel:[   19.983986] SGI XFS with ACLs, security attributes, large block/inode numbers, no debug enabled
+12:33:28,886 INFO NetworkManager: <info>  (ens3): disconnecting for new activation request.
+12:33:28,887 INFO NetworkManager: <info>  (ens3): device state change: activated -> deactivating (reason 'none') [100 110 0]
+12:33:28,887 INFO NetworkManager: <info>  NetworkManager state is now DISCONNECTED
+12:33:28,892 INFO NetworkManager: <info>  (ens3): device state change: deactivating -> disconnected (reason 'none') [110 30 0]
+12:33:28,894 INFO NetworkManager: <info>  (ens3): deactivating device (reason 'none') [0]
+12:33:28,896 INFO NetworkManager: <info>  (ens3): canceled DHCP transaction, DHCP client pid 1132
+12:33:28,897 INFO NetworkManager: <info>  (ens3): DHCPv4 state changed bound -> done
+12:33:28,900 INFO NetworkManager: <info>  Setting system hostname to 'localhost.localdomain' (no default device)
+12:33:28,901 NOTICE nm-dispatcher: Dispatching action 'hostname'
+12:33:28,902 INFO NetworkManager: <info>  (ens3): Activation: starting connection 'ens3'
+12:33:28,902 INFO NetworkManager: <info>  (ens3): Activation: Stage 1 of 5 (Device Prepare) scheduled...
+12:33:28,907 INFO NetworkManager: <info>  (ens3): Activation: Stage 1 of 5 (Device Prepare) started...
+12:33:28,908 INFO NetworkManager: <info>  (ens3): device state change: disconnected -> prepare (reason 'none') [30 40 0]
+12:33:28,909 INFO NetworkManager: <info>  NetworkManager state is now CONNECTING
+12:33:28,910 INFO NetworkManager: <info>  (ens3): Activation: Stage 2 of 5 (Device Configure) scheduled...
+12:33:28,910 INFO NetworkManager: <info>  (ens3): Activation: Stage 1 of 5 (Device Prepare) complete.
+12:33:28,910 INFO NetworkManager: <info>  (ens3): Activation: Stage 2 of 5 (Device Configure) starting...
+12:33:28,910 INFO NetworkManager: <info>  (ens3): device state change: prepare -> config (reason 'none') [40 50 0]
+12:33:28,911 INFO NetworkManager: <info>  (ens3): Activation: Stage 2 of 5 (Device Configure) successful.
+12:33:28,914 INFO NetworkManager: <info>  (ens3): Activation: Stage 2 of 5 (Device Configure) complete.
+12:33:28,916 INFO NetworkManager: <info>  (ens3): Activation: Stage 3 of 5 (IP Configure Start) scheduled.
+12:33:28,917 INFO NetworkManager: <info>  (ens3): Activation: Stage 3 of 5 (IP Configure Start) started...
+12:33:28,918 INFO NetworkManager: <info>  (ens3): device state change: config -> ip-config (reason 'none') [50 70 0]
+12:33:28,918 INFO NetworkManager: <info>  Activation (ens3) Beginning DHCPv4 transaction (timeout in 45 seconds)
+12:33:28,920 INFO NetworkManager: <info>  dhclient started with pid 1239
+12:33:28,922 INFO NetworkManager: <info>  (ens3): Activation: Stage 3 of 5 (IP Configure Start) complete.
+12:33:28,999 NOTICE nm-dispatcher: Dispatching action 'down' for ens3
+12:33:29,014 INFO dhclient: DHCPREQUEST on ens3 to 255.255.255.255 port 67 (xid=0x270801ec)
+12:33:29,025 INFO dhclient: DHCPACK from 192.168.122.1 (xid=0x270801ec)
+12:33:29,049 INFO NetworkManager: <info>    address 192.168.122.207
+12:33:29,049 INFO NetworkManager: <info>    plen 24 (255.255.255.0)
+12:33:29,049 INFO NetworkManager: <info>    gateway 192.168.122.1
+12:33:29,049 INFO NetworkManager: <info>    server identifier 192.168.122.1
+12:33:29,049 INFO NetworkManager: <info>    lease time 3600
+12:33:29,049 INFO NetworkManager: <info>    nameserver '192.168.122.1'
+12:33:29,049 INFO NetworkManager: <info>  (ens3): DHCPv4 state changed unknown -> bound
+12:33:29,050 INFO NetworkManager: <info>  (ens3): Activation: Stage 5 of 5 (IPv4 Configure Commit) scheduled...
+12:33:29,050 INFO NetworkManager: <info>  (ens3): Activation: Stage 5 of 5 (IPv4 Commit) started...
+12:33:29,051 ERR NetworkManager: _nl_get_vtable: assertion 'vtable.handle' failed
+12:33:29,051 INFO NetworkManager: <info>  (ens3): device state change: ip-config -> ip-check (reason 'none') [70 80 0]
+12:33:29,052 INFO NetworkManager: <info>  (ens3): Activation: Stage 5 of 5 (IPv4 Commit) complete.
+12:33:29,052 INFO NetworkManager: <info>  (ens3): device state change: ip-check -> secondaries (reason 'none') [80 90 0]
+12:33:29,053 INFO NetworkManager: <info>  (ens3): device state change: secondaries -> activated (reason 'none') [90 100 0]
+12:33:29,053 INFO NetworkManager: <info>  NetworkManager state is now CONNECTED_LOCAL
+12:33:29,055 INFO NetworkManager: <info>  NetworkManager state is now CONNECTED_GLOBAL
+12:33:29,055 INFO NetworkManager: <info>  Policy set 'ens3' (ens3) as default for IPv4 routing and DNS.
+12:33:29,056 INFO NetworkManager: <info>  (ens3): Activation: successful, device activated.
+12:33:29,058 INFO dhclient: bound to 192.168.122.207 -- renewal in 1474 seconds.
+12:33:29,107 NOTICE nm-dispatcher: Dispatching action 'up' for ens3
+12:33:29,483 NOTICE kernel:[   21.358139] type=1400 audit(1434630809.483:25): avc:  denied  { read write } for  pid=1317 comm="hwclock" path="/dev/pts/0" dev="devpts" ino=3 scontext=system_u:system_r:hwclock_t:s0 tcontext=system_u:object_r:devpts_t:s0 tclass=chr_file
+12:33:30,000 NOTICE kernel:[   22.249819] type=1400 audit(1434630810.000:26): avc:  denied  { ioctl } for  pid=1317 comm="hwclock" path="/dev/pts/0" dev="devpts" ino=3 scontext=system_u:system_r:hwclock_t:s0 tcontext=system_u:object_r:devpts_t:s0 tclass=chr_file
+12:33:30,000 NOTICE kernel:[   22.249833] type=1400 audit(1434630810.000:27): avc:  denied  { getattr } for  pid=1317 comm="hwclock" path="/dev/pts/0" dev="devpts" ino=3 scontext=system_u:system_r:hwclock_t:s0 tcontext=system_u:object_r:devpts_t:s0 tclass=chr_file
+12:33:51,619 INFO kernel:[   43.867928] EXT4-fs (sda1): mounted filesystem with ordered data mode. Opts: (null)
+12:33:51,619 DEBUG kernel:[   43.867935] SELinux: initialized (dev sda1, type ext4), uses xattr
+12:33:51,657 DEBUG kernel:[   43.906654] SELinux: initialized (dev tmpfs, type tmpfs), uses transition SIDs
+12:33:59,755 INFO NetworkManager: <info>  (ens3): Activation: Stage 4 of 5 (IPv6 Configure Timeout) scheduled...
+12:33:59,755 INFO NetworkManager: <info>  (ens3): Activation: Stage 4 of 5 (IPv6 Configure Timeout) started...
+12:33:59,755 INFO NetworkManager: <info>  (ens3): Activation: Stage 4 of 5 (IPv6 Configure Timeout) complete.
+12:35:20,440 NOTICE kernel:[  132.689582] type=1400 audit(1434630920.439:28): avc:  denied  { read write } for  pid=1405 comm="ldconfig" path="/dev/pts/0" dev="devpts" ino=3 scontext=system_u:system_r:ldconfig_t:s0 tcontext=system_u:object_r:devpts_t:s0 tclass=chr_file
+12:39:02,428 NOTICE kernel:[  354.677757] type=1400 audit(1434631142.427:29): avc:  denied  { read write } for  pid=1567 comm="ldconfig" path="/dev/pts/0" dev="devpts" ino=3 scontext=system_u:system_r:ldconfig_t:s0 tcontext=system_u:object_r:devpts_t:s0 tclass=chr_file
+12:41:01,031 NOTICE dbus: [system] Activating via systemd: service name='org.freedesktop.locale1' unit='dbus-org.freedesktop.locale1.service'
+12:41:01,055 NOTICE dbus: [system] Successfully activated service 'org.freedesktop.locale1'
+12:41:01,918 NOTICE kernel:[  474.167241] type=1400 audit(1434631261.917:30): avc:  denied  { read write } for  pid=7557 comm="ldconfig" path="/dev/pts/0" dev="devpts" ino=3 scontext=system_u:system_r:ldconfig_t:s0 tcontext=system_u:object_r:devpts_t:s0 tclass=chr_file
+12:41:10,577 NOTICE kernel:[  482.826877] type=1400 audit(1434631270.576:31): avc:  denied  { write } for  pid=11685 comm="ldconfig" path="/var/tmp/dracut-log.pDuC4v/systemd-cat" dev="sda1" ino=11701 scontext=system_u:system_r:ldconfig_t:s0 tcontext=system_u:object_r:initrc_tmp_t:s0 tclass=fifo_file
+12:41:10,578 NOTICE kernel:[  482.827363] type=1400 audit(1434631270.577:32): avc:  denied  { read } for  pid=11685 comm="ldconfig" name="ld.so.conf.d" dev="sda1" ino=12006 scontext=system_u:system_r:ldconfig_t:s0 tcontext=system_u:object_r:initrc_tmp_t:s0 tclass=dir
+12:41:10,579 NOTICE kernel:[  482.828830] type=1400 audit(1434631270.578:33): avc:  denied  { write } for  pid=11685 comm="ldconfig" name="etc" dev="sda1" ino=11707 scontext=system_u:system_r:ldconfig_t:s0 tcontext=system_u:object_r:initrc_tmp_t:s0 tclass=dir
+12:41:10,579 NOTICE kernel:[  482.828836] type=1400 audit(1434631270.578:34): avc:  denied  { add_name } for  pid=11685 comm="ldconfig" name="ld.so.cache~" scontext=system_u:system_r:ldconfig_t:s0 tcontext=system_u:object_r:initrc_tmp_t:s0 tclass=dir
+12:41:10,579 NOTICE kernel:[  482.828845] type=1400 audit(1434631270.578:35): avc:  denied  { create } for  pid=11685 comm="ldconfig" name="ld.so.cache~" scontext=system_u:system_r:ldconfig_t:s0 tcontext=system_u:object_r:initrc_tmp_t:s0 tclass=file
+12:41:10,579 NOTICE kernel:[  482.828891] type=1400 audit(1434631270.578:36): avc:  denied  { setattr } for  pid=11685 comm="ldconfig" name="ld.so.cache~" dev="sda1" ino=12008 scontext=system_u:system_r:ldconfig_t:s0 tcontext=system_u:object_r:initrc_tmp_t:s0 tclass=file
+12:41:10,579 NOTICE kernel:[  482.828902] type=1400 audit(1434631270.578:37): avc:  denied  { remove_name } for  pid=11685 comm="ldconfig" name="ld.so.cache~" dev="sda1" ino=12008 scontext=system_u:system_r:ldconfig_t:s0 tcontext=system_u:object_r:initrc_tmp_t:s0 tclass=dir
+12:41:10,579 NOTICE kernel:[  482.828907] type=1400 audit(1434631270.578:38): avc:  denied  { rename } for  pid=11685 comm="ldconfig" name="ld.so.cache~" dev="sda1" ino=12008 scontext=system_u:system_r:ldconfig_t:s0 tcontext=system_u:object_r:initrc_tmp_t:s0 tclass=file
+12:41:23,794 INFO yum: Erased: 1:grub2-2.02-0.16.el7.centos.x86_64
+12:41:24,069 INFO yum: Erased: 1:grub2-tools-2.02-0.16.el7.centos.x86_64
+12:41:24,316 INFO yum: Erased: kexec-tools-2.0.7-19.el7_1.2.x86_64
+12:41:24,580 INFO yum: Erased: dracut-network-033-241.el7_1.1.x86_64
+12:41:24,808 INFO yum: Erased: 12:dhclient-4.2.5-36.el7.centos.x86_64
+12:41:25,045 INFO yum: Erased: 12:dhcp-common-4.2.5-36.el7.centos.x86_64
+12:41:25,299 INFO yum: Erased: initscripts-9.49.24-1.el7.x86_64
+12:41:25,657 INFO yum: Erased: 32:bind-libs-lite-9.9.4-18.el7_1.1.x86_64
+12:41:25,931 INFO yum: Erased: dracut-033-241.el7_1.1.x86_64
+12:41:26,279 INFO yum: Erased: gettext-0.18.2.1-4.el7.x86_64
+12:41:26,541 INFO yum: Erased: os-prober-1.58-5.el7.x86_64
+12:41:26,777 INFO yum: Erased: kmod-14-10.el7.x86_64
+12:41:27,036 INFO yum: Erased: 32:bind-utils-9.9.4-18.el7_1.1.x86_64
+12:41:27,286 INFO yum: Erased: 12:dhcp-libs-4.2.5-36.el7.centos.x86_64
+12:41:27,558 INFO yum: Erased: centos-logos-70.0.6-2.el7.centos.noarch
+12:41:27,832 INFO yum: Erased: 32:bind-libs-9.9.4-18.el7_1.1.x86_64
+12:41:28,084 INFO yum: Erased: 32:bind-license-9.9.4-18.el7_1.1.noarch
+12:41:28,302 INFO yum: Erased: kmod-libs-14-10.el7.x86_64
+12:41:28,551 INFO yum: Erased: gettext-libs-0.18.2.1-4.el7.x86_64
+12:41:28,802 INFO yum: Erased: freetype-2.4.11-10.el7_1.1.x86_64
+12:41:29,062 INFO yum: Erased: grubby-8.28-11.el7.x86_64
+12:41:30,228 INFO yum: Erased: firewalld-0.3.9-11.el7.noarch
+12:41:30,476 INFO yum: Erased: python-slip-dbus-0.4.0-2.el7.noarch
+12:41:30,711 INFO yum: Erased: python-slip-0.4.0-2.el7.noarch
+12:41:30,948 INFO yum: Erased: dbus-python-1.1.1-9.el7.x86_64
+12:41:31,230 INFO yum: Erased: pygobject3-base-3.8.2-6.el7.x86_64
+12:41:31,512 INFO yum: Erased: e2fsprogs-1.42.9-7.el7.x86_64
+12:41:31,778 INFO yum: Erased: kpartx-0.4.9-77.el7.x86_64
+12:41:32,023 INFO yum: Erased: python-decorator-3.4.0-3.el7.noarch
+12:41:32,281 INFO yum: Erased: linux-firmware-20140911-0.1.git365e80c.el7.noarch
+12:41:32,541 INFO yum: Erased: 7:device-mapper-1.02.93-3.el7.x86_64
+12:41:32,798 INFO yum: Erased: 7:device-mapper-libs-1.02.93-3.el7.x86_64
+12:41:33,047 INFO yum: Erased: e2fsprogs-libs-1.42.9-7.el7.x86_64
+12:41:33,295 INFO yum: Erased: gobject-introspection-1.36.0-4.el7.x86_64
+12:41:33,556 INFO yum: Erased: dbus-glib-0.100-7.el7.x86_64
+12:41:33,782 INFO yum: Erased: libselinux-python-2.2.2-6.el7.x86_64
+12:41:34,020 INFO yum: Erased: ebtables-2.0.10-13.el7.x86_64
+12:41:34,267 INFO yum: Erased: sysvinit-tools-2.88-14.dsf.el7.x86_64

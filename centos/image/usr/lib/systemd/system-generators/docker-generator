@@ -1,0 +1,10 @@
+#!/bin/bash
+if [ -n "$MACHINE_ID" ]; then
+	echo "$MACHINE_ID" > /etc/machine-id
+fi
+
+for i in $(systemctl list-unit-files --root / | awk '{print $1;}'| grep 'service$'); do
+	mkdir -p /run/systemd/system/${i}.d
+	echo -e "[Service]\nPrivateTmp=False" > /run/systemd/system/${i}.d/00-docker.conf	
+done
+
