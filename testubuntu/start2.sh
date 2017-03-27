@@ -1,6 +1,6 @@
 set -x
-sudo umount ./myroot/
-sudo mount -v -t aufs -obr=./updir/:./initdir:./image/ -o udba=none  none ./myroot2/
+sudo umount ./myroot22/
+sudo mount -v -t aufs -obr=./updir2/:./initdir2:./image/ -o udba=none  none ./myroot2/
 sudo ip netns delete $1
 
 sudo ip netns add $1
