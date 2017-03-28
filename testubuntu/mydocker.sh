@@ -21,20 +21,26 @@ fGetMachineIp()
 
 fStartEtcd()
 {
-    echo "++++++++++++++++starting etcd+++++++++++++++++++++++++"
-    if [ -z "$(ps -fe|grep etcd  | grep -v grep)" ]; then
-      sudo ./etcd/etcd --listen-client-urls=http://0.0.0.0:2379,http://0.0.0.0:4001 --advertise-client-urls=http://localhost:2379,http://localhost:4001 --listen-peer-urls=http://0.0.0.0:2380 --data-dir=/var/etcd/data 1>/dev/null 2>/dev/null &
-      sleep 3 
-      echo "++++++++++++++start etcd +++++++++++++++++++++++++++"
-    else
-      echo "++++++++++++++etcd is started+++++++++++++++++++++++"
+    if [ -z $etcd_server ]; then
+        echo "++++++++++++++++starting etcd+++++++++++++++++++++++++"
+        if [ -z "$(ps -fe|grep etcd  | grep -v grep)" ]; then
+            sudo ./etcd/etcd --listen-client-urls=http://0.0.0.0:2379,http://0.0.0.0:4001 --advertise-client-urls=http://localhost:2379,http://localhost:4001 --listen-peer-urls=http://0.0.0.0:2380 --data-dir=/var/etcd/data 1>/dev/null 2>/dev/null &
+            sleep 3 
+            echo "++++++++++++++start etcd +++++++++++++++++++++++++++"
+        else
+            echo "++++++++++++++etcd is started+++++++++++++++++++++++"
+        fi
     fi
 }
 fStartFlannel()
 {
+    server=127.0.0.1
+    if [ ! -z $etcd_server ]; then
+        server=$etcd_server
+    fi
     echo "++++++++++++++++starting flannel+++++++++++++++++++++++++"
     if [ -z "$(ps -fe|grep flanneld  | grep -v grep)" ]; then
-      sudo  ./flannel/flanneld  --etcd-endpoints=http://127.0.0.1:2379 --etcd-prefix=/coreos.com/network --ip-masq=true -logtostderr=false --log_dir=/var/log/flanneld 1>/dev/null 2>/dev/null &
+      sudo  ./flannel/flanneld  --etcd-endpoints=http://$server:2379 --etcd-prefix=/coreos.com/network --ip-masq=true -logtostderr=false --log_dir=/var/log/flanneld 1>/dev/null 2>/dev/null &
       sleep 3
       echo "++++++++++++++start flannel +++++++++++++++++++++++++++"
     else
@@ -95,9 +101,14 @@ createMyDocker()
        sudo brctl addbr $bridge
     fi
     sudo ip link set dev $bridge up
-    sudo ip address add $gwip dev $bridge
-    sudo route add -net $netip netmask 255.255.255.0 dev $bridge
 
+    if [ -z "$(ip ad | grep $bridge | grep $gwip)" ]; then
+        sudo ip address add $gwip dev $bridge
+    fi
+
+    if [ -z "$(route  | grep $netip)" ]; then
+       sudo route add -net $netip netmask 255.255.255.0 dev $bridge
+    fi
 
     echo "#create by startmachine.sh" > $runingpath/init.sh
     echo "ip link set dev lo up" >> $runingpath/init.sh
@@ -177,7 +188,6 @@ fClean()
    do
       fStopDocker $id
    done
-   sudo rm lastmachine 
 }
 
 if [ $# -lt 1 ]; then
