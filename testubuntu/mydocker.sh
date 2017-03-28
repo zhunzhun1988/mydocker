@@ -2,14 +2,15 @@
 #set -x
 fGetMachineNum()
 {
-    machinenum=2
-    if [ -f "lastmachine" ] ; then
-        machinenum=$(cat lastmachine)
-        machinenum=$(($machinenum + 1))
-    fi
-
-    echo $machinenum > lastmachine
-    echo $machinenum
+    for id in `seq 2 254`
+    do 
+        path=$curpath"/machines/rootmachine"$id
+        if [ ! -d $path ]; then
+           echo $id
+           return
+        fi
+    done
+    echo -1
 }
 
 fGetMachineIp()
@@ -45,11 +46,18 @@ curpath=$(pwd)
 bridge="mybr"
 imagepath="$curpath/image"
 
-startMyDocker() 
+_createmachine=""
+
+createMyDocker() 
 {
+    _createmachine=""
     fStartEtcd
     fStartFlannel
     num=$(fGetMachineNum)
+    if [ $num -lt 2 ]; then
+       echo "get machine num err"
+       return
+    fi
     ip=$(fGetMachineIp $num)
     netip=$(echo $ip | cut -f 1-3 -d '.')".0"
     gwip=$(echo $ip | cut -f 1-3 -d '.')".1"
@@ -88,7 +96,8 @@ startMyDocker()
     fi
     sudo ip link set dev $bridge up
     sudo ip address add $gwip dev $bridge
-    sudo brctl addif $bridge machine$num
+    sudo route add -net $netip netmask 255.255.255.0 dev $bridge
+
 
     echo "#create by startmachine.sh" > $runingpath/init.sh
     echo "ip link set dev lo up" >> $runingpath/init.sh
@@ -97,25 +106,44 @@ startMyDocker()
     echo "busybox route add -net $netip netmask 255.255.255.0 dev eth0" >> $runingpath/init.sh
     echo "busybox route add default gw $gwip" >> $runingpath/init.sh
     sudo chmod 777 $runingpath/init.sh
+    _createmachine="rootmachine"$num
+}
 
-    sudo ip netns exec $netns  chroot $rootpath /bin/mybash2 mymachine$num 
+fStartMyDocker()
+{
+    id=$(echo $1 | tr -cd "[0-9]")
+    netns="netns"$id
+    rootpath=$curpath"/machines/rootmachine"$id
+
+    sudo brctl addif $bridge machine$id
+    sudo ip netns exec $netns  chroot $rootpath /bin/mybash2 mymachine$id
 }
 
 fHelp() 
 {
     echo "Commands:"
     echo "  ps  Show running docker"
-    echo "  start  Start a docker"
+    echo "  run  Create and start a docker"
+    echo "  start Start a created docker"
     echo "  stop   Stop a docker"
     echo "  clean  Stop all docker and clean the tmp fil"
 }
 
 fStopDocker()
 {
-   netns="netns"$1
+   id=$(echo $1 | tr -cd "[0-9]")
+   netns="netns"$id
    rootpath=$curpath"/machines/rootmachine"$id
    runingpath=$curpath"/runningpath/machine"$id
-   sudo kill `ps -aux | grep "mybash2 mymachine$1" | awk -F' ' '{print $2}'`
+   
+   pid=`ps -ef | grep  "00:00:00 /bin/mybash2" | grep mymachine$id  | awk -F' ' '{print $2}'`
+  if [ ! -z "$pid" ]; then
+      pid=$(ps -ef | grep -E "[0-9]+ $pid" |awk -F' ' '{print $2}')
+      if [ ! -z "$pid" ]; then
+         sudo kill -9 $pid
+         sleep 1
+      fi
+   fi
    if [ ! -z "$(ip netns | grep $netns)" ]; then
        sudo ip netns delete $netns
        echo "++ delete netns" $netns
@@ -132,7 +160,14 @@ fStopDocker()
 
 fDockerPs()
 {
-   ls ./machine
+   for m in $(ls ./machines)
+   do
+      if [ ! -z "$(ps -ef | grep mybash2 | grep $m)" ]; then
+          echo $m "running"
+      else
+          echo $m "existed"
+      fi
+   done
 }
 
 
@@ -141,18 +176,39 @@ fClean()
    for id in $(seq 1 255)
    do
       fStopDocker $id
-   done 
+   done
+   sudo rm lastmachine 
 }
 
 if [ $# -lt 1 ]; then
    fHelp
+elif [ "$1" = "run" ]; then
+   createMyDocker
+   if [ ! -z $_createmachine ]; then
+       fStartMyDocker $_createmachine
+   fi
+elif [ "$1" = "create" ]; then
+   createMyDocker
+   if [ ! -z $_createmachine ]; then
+      echo "docker $_createmachine is created success"
+   fi
 elif [ "$1" = "start" ]; then
-   startMyDocker
+   if [ $# -lt 2 ]; then
+     echo "please input start docker name"
+   else
+     fStartMyDocker $2
+   fi
 elif [ "$1" = "stop" ]; then
-   echo test stop
+   if [ $# -lt 2 ]; then
+     echo "please input stop docker name"
+   else
+     fStopDocker $2
+   fi
 elif [ "$1" = "clean" ]; then
    fClean
 elif [ "$1" = "ps" ]; then
-   fDockerps
+   fDockerPs
+else
+   fHelp
 fi
 
