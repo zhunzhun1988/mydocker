@@ -28,12 +28,14 @@ int main(int argc ,char * argv[]) {
   child_args[0]  = "/bin/bash";
   child_args[1] = NULL;
 
-  if (argc > 1) {
+  if (argc == 2) {
+      machinename = argv[1]; 
+  } else if (argc > 2) {
      machinename = argv[1];
      for (int i = 2; i < argc ; i++) {
-          child_args[i-1] = argv[i];
+          child_args[i-2] = argv[i];
      }
-     child_args[argc-1] = NULL;
+     child_args[argc-2] = NULL;
   }
 
   int child_pid = clone(child_main, child_stack+STACK_SIZE,

@@ -1,0 +1,58 @@
+136:b2a06ba9cab4227466bfa7b5d594d63db54733bc
+32
+4
+base:8652:1427842153
+extras:149:1435117522
+updates:1000:1438299318
+installed:142:c1635b606f7f0b2762b826d879e36c9261525a5a
+6
+mbr: openssh-server,x86_64,0,6.6.1p1,12.el7_1 70
+  repo: updates
+  ts_state: u
+  output_state: 20
+  isDep: False
+  reason: user
+  reinstall: False
+mbr: tcp_wrappers-libs,x86_64,0,7.6,77.el7 70
+  repo: base
+  ts_state: u
+  output_state: 20
+  isDep: True
+  reason: dep
+  reinstall: False
+  relatedto: openssh-server,x86_64,0,6.6.1p1,12.el7_1@a:dependson
+  depends_on: openssh-server,x86_64,0,6.6.1p1,12.el7_1@a
+mbr: fipscheck-lib,x86_64,0,1.4.1,5.el7 70
+  repo: base
+  ts_state: u
+  output_state: 20
+  isDep: True
+  reason: dep
+  reinstall: False
+  relatedto: openssh-server,x86_64,0,6.6.1p1,12.el7_1@a:dependson openssh,x86_64,0,6.6.1p1,12.el7_1@a:dependson fipscheck,x86_64,0,1.4.1,5.el7@a:dependson fipscheck,x86_64,0,1.4.1,5.el7@a:dependson
+  depends_on: openssh-server,x86_64,0,6.6.1p1,12.el7_1@a openssh,x86_64,0,6.6.1p1,12.el7_1@a fipscheck,x86_64,0,1.4.1,5.el7@a fipscheck,x86_64,0,1.4.1,5.el7@a
+mbr: epel-release,noarch,0,7,5 70
+  repo: extras
+  ts_state: u
+  output_state: 20
+  isDep: False
+  reason: user
+  reinstall: False
+mbr: fipscheck,x86_64,0,1.4.1,5.el7 70
+  repo: base
+  ts_state: u
+  output_state: 20
+  isDep: True
+  reason: dep
+  reinstall: False
+  relatedto: fipscheck-lib,x86_64,0,1.4.1,5.el7@a:dependson
+  depends_on: fipscheck-lib,x86_64,0,1.4.1,5.el7@a
+mbr: openssh,x86_64,0,6.6.1p1,12.el7_1 70
+  repo: updates
+  ts_state: u
+  output_state: 20
+  isDep: True
+  reason: dep
+  reinstall: False
+  relatedto: openssh-server,x86_64,0,6.6.1p1,12.el7_1@a:dependson
+  depends_on: openssh-server,x86_64,0,6.6.1p1,12.el7_1@a

@@ -1,0 +1,10 @@
+http://mirror.acsnet.com/centos/7.1.1503/updates/x86_64/
+http://linux.mirrors.es.net/centos/7.1.1503/updates/x86_64/
+http://mirror.thelinuxfix.com/CentOS/7.1.1503/updates/x86_64/
+ftp://mirror.nandomedia.com/pub/CentOS/7.1.1503/updates/x86_64/
+http://repos.mia.quadranet.com/centos/7.1.1503/updates/x86_64/
+http://www.gtlib.gatech.edu/pub/centos/7.1.1503/updates/x86_64/
+http://centos.hostingxtreme.com/7.1.1503/updates/x86_64/
+http://mirrors.unifiedlayer.com/centos/7.1.1503/updates/x86_64/
+http://mirror.solarvps.com/centos/7.1.1503/updates/x86_64/
+http://mirror.raystedman.net/centos/7.1.1503/updates/x86_64/

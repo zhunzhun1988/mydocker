@@ -1,0 +1,10 @@
+http://mirror.millry.co/CentOS/7.1.1503/os/x86_64/
+http://mirror.ancl.hawaii.edu/linux/centos/7.1.1503/os/x86_64/
+http://mirror.symnds.com/CentOS/7.1.1503/os/x86_64/
+http://linux.cc.lehigh.edu/centos/7.1.1503/os/x86_64/
+http://mirror.cs.uwp.edu/pub/centos/7.1.1503/os/x86_64/
+http://centos.eecs.wsu.edu/7.1.1503/os/x86_64/
+http://mirrors.maine.edu/CentOS/7.1.1503/os/x86_64/
+http://mirror.ash.fastserv.com/pub/linux/centos/7.1.1503/os/x86_64/
+http://mirror.pac-12.org/7.1.1503/os/x86_64/
+http://mirror.tocici.com/centos/7.1.1503/os/x86_64/

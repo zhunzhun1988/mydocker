@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<metalink version="3.0" xmlns="http://www.metalinker.org/" type="dynamic" pubdate="Tue, 04 Aug 2015 14:14:06 GMT" generator="mirrormanager" xmlns:mm0="http://fedorahosted.org/mirrormanager">
+  <files>
+    <file name="repomd.xml">
+      <mm0:timestamp>1438449831</mm0:timestamp>
+      <size>4543</size>
+      <verification>
+        <hash type="md5">ffc31e2ff2992a0f466bcb87e597b3df</hash>
+        <hash type="sha1">5d47f9ee317f18207db55090d4c53d1568328b73</hash>
+        <hash type="sha256">34c405a09def0e1d6279ae4221972c2ba88eb556c8f735cb3e38b7761cc2bc4c</hash>
+        <hash type="sha512">08ee8e17e2550e982dc9eaaaa7d011e2a518fa9c321d3b59b21a9e42375669930a14aa4b770e9c9852cc5951b6452bf07e9287acfb0277568fb27a1ed81a0b68</hash>
+      </verification>
+      <mm0:alternates>
+        <mm0:alternate>
+            <mm0:timestamp>1438534813</mm0:timestamp>
+            <size>4542</size>
+            <verification>
+              <hash type="md5">3fd9626644ec5d0a3ec04bdc9a58f32f</hash>
+              <hash type="sha1">062dc78f2a2c1ff3ea1292832eb29b4325c08107</hash>
+              <hash type="sha256">641b971b15b0eebb1620f1e3a77d59ab5c2254689e80d52bb9fac82d7e482dd8</hash>
+              <hash type="sha512">e1a1e8ddef69c8c8d8ceb64bd57e8004713d8f0b2b83f2c60b1a91fd70c5bec99d4e62ea571f34f8ca4074384eb4a6e57b59774598327d2e86435506b71e29a9</hash>
+            </verification>
+        </mm0:alternate>
+      </mm0:alternates>
+      <resources maxconnections="1">
+        <url protocol="http" type="http" location="US" preference="100" mm0:private="True">http://s3-mirror-us-east-1.fedoraproject.org/pub/epel/7/x86_64/repodata/repomd.xml</url>
+        <url protocol="http" type="http" location="US" preference="99" mm0:private="True">http://mirror.es.its.nyu.edu/epel/7/x86_64/repodata/repomd.xml</url>
+        <url protocol="ftp" type="ftp" location="US" preference="98" >ftp://ftp.linux.ncsu.edu/pub/epel/7/x86_64/repodata/repomd.xml</url>
+        <url protocol="http" type="http" location="US" preference="98" >http://ftp.linux.ncsu.edu/pub/epel/7/x86_64/repodata/repomd.xml</url>
+        <url protocol="http" type="http" location="US" preference="97" >http://kdeforge2.unl.edu/mirrors/epel/7/x86_64/repodata/repomd.xml</url>
+        <url protocol="rsync" type="rsync" location="US" preference="96" >rsync://mirror.unl.edu/fedora-epel/7/x86_64/repodata/repomd.xml</url>
+        <url protocol="http" type="http" location="US" preference="96" >http://mirror.unl.edu/epel/7/x86_64/repodata/repomd.xml</url>
+        <url protocol="http" type="http" location="US" preference="95" >http://mirror.chpc.utah.edu/pub/epel/7/x86_64/repodata/repomd.xml</url>
+        <url protocol="rsync" type="rsync" location="US" preference="95" >rsync://mirror.chpc.utah.edu/pub/epel/7/x86_64/repodata/repomd.xml</url>
+        <url protocol="http" type="http" location="US" preference="94" >http://lug.mtu.edu/epel/7/x86_64/repodata/repomd.xml</url>
+        <url protocol="rsync" type="rsync" location="US" preference="94" >rsync://lug.mtu.edu/fedoraepel/7/x86_64/repodata/repomd.xml</url>
+        <url protocol="ftp" type="ftp" location="US" preference="94" >ftp://lug.mtu.edu/epel/7/x86_64/repodata/repomd.xml</url>
+        <url protocol="http" type="http" location="US" preference="93" >http://mirrors.cat.pdx.edu/epel/7/x86_64/repodata/repomd.xml</url>
+        <url protocol="rsync" type="rsync" location="US" preference="93" >rsync://mirrors.cat.pdx.edu/fedora/epel/7/x86_64/repodata/repomd.xml</url>
+        <url protocol="http" type="http" location="US" preference="92" >http://mirror.hmc.edu/epel/7/x86_64/repodata/repomd.xml</url>
+        <url protocol="http" type="http" location="US" preference="91" >http://mirror.oss.ou.edu/epel/7/x86_64/repodata/repomd.xml</url>
+        <url protocol="rsync" type="rsync" location="US" preference="91" >rsync://mirror.oss.ou.edu/epel/7/x86_64/repodata/repomd.xml</url>
+        <url protocol="ftp" type="ftp" location="US" preference="91" >ftp://mirror.oss.ou.edu/epel/7/x86_64/repodata/repomd.xml</url>
+        <url protocol="ftp" type="ftp" location="US" preference="90" >ftp://mirror.cs.pitt.edu/epel/7/x86_64/repodata/repomd.xml</url>
+        <url protocol="http" type="http" location="US" preference="90" >http://mirror.cs.pitt.edu/epel/7/x86_64/repodata/repomd.xml</url>
+        <url protocol="rsync" type="rsync" location="US" preference="90" >rsync://mirror.cs.pitt.edu/fedora-epel/7/x86_64/repodata/repomd.xml</url>
+        <url protocol="ftp" type="ftp" location="US" preference="89" >ftp://ftp.osuosl.org/pub/fedora-epel/7/x86_64/repodata/repomd.xml</url>
+        <url protocol="http" type="http" location="US" preference="89" >http://ftp.osuosl.org/pub/fedora-epel/7/x86_64/repodata/repomd.xml</url>
+        <url protocol="http" type="http" location="US" preference="88" mm0:private="True">http://mirror.cc.columbia.edu/pub/linux/epel/7/x86_64/repodata/repomd.xml</url>
+        <url protocol="rsync" type="rsync" location="US" preference="88" mm0:private="True">rsync://mirror.cc.columbia.edu/fedora-epel/7/x86_64/repodata/repomd.xml</url>
+        <url protocol="ftp" type="ftp" location="US" preference="88" mm0:private="True">ftp://mirror.cc.columbia.edu/pub/linux/epel/7/x86_64/repodata/repomd.xml</url>
+        <url protocol="ftp" type="ftp" location="US" preference="87" >ftp://mirror.symnds.com/distributions/fedora-epel/7/x86_64/repodata/repomd.xml</url>
+        <url protocol="http" type="http" location="US" preference="87" >http://mirror.symnds.com/distributions/fedora-epel/7/x86_64/repodata/repomd.xml</url>
+        <url protocol="rsync" type="rsync" location="US" preference="87" >rsync://mirror.symnds.com/fedora-epel/7/x86_64/repodata/repomd.xml</url>
+        <url protocol="http" type="http" location="US" preference="86" >http://mirrors.kernel.org/fedora-epel/7/x86_64/repodata/repomd.xml</url>
+        <url protocol="rsync" type="rsync" location="US" preference="86" >rsync://mirrors.kernel.org/fedora-epel/7/x86_64/repodata/repomd.xml</url>
+        <url protocol="rsync" type="rsync" location="US" preference="86" >rsync://mirrors.kernel.org/t2fedora-epel/7/x86_64/repodata/repomd.xml</url>
+        <url protocol="ftp" type="ftp" location="US" preference="86" >ftp://mirrors.kernel.org/fedora-epel/7/x86_64/repodata/repomd.xml</url>
+        <url protocol="http" type="http" location="US" preference="85" >http://mirror.nexcess.net/epel/7/x86_64/repodata/repomd.xml</url>
+        <url protocol="ftp" type="ftp" location="US" preference="85" >ftp://mirror.nexcess.net/epel/7/x86_64/repodata/repomd.xml</url>
+        <url protocol="rsync" type="rsync" location="US" preference="84" >rsync://mirror.steadfast.net/epel/7/x86_64/repodata/repomd.xml</url>
+        <url protocol="ftp" type="ftp" location="US" preference="84" >ftp://mirror.steadfast.net/epel/7/x86_64/repodata/repomd.xml</url>
+        <url protocol="http" type="http" location="US" preference="84" >http://mirror.steadfast.net/epel/7/x86_64/repodata/repomd.xml</url>
+        <url protocol="http" type="http" location="US" preference="83" >http://mirror.redsox.cc/pub/epel/7/x86_64/repodata/repomd.xml</url>
+        <url protocol="rsync" type="rsync" location="US" preference="83" >rsync://mirror.redsox.cc/epel/7/x86_64/repodata/repomd.xml</url>
+        <url protocol="rsync" type="rsync" location="US" preference="82" >rsync://mirror.clarkson.edu/epel/7/x86_64/repodata/repomd.xml</url>
+        <url protocol="http" type="http" location="US" preference="82" >http://mirror.clarkson.edu/epel/7/x86_64/repodata/repomd.xml</url>
+        <url protocol="rsync" type="rsync" location="US" preference="81" >rsync://reflector.westga.edu/Fedora-EPEL/7/x86_64/repodata/repomd.xml</url>
+        <url protocol="http" type="http" location="US" preference="81" >http://reflector.westga.edu/repos/Fedora-EPEL/7/x86_64/repodata/repomd.xml</url>
+        <url protocol="rsync" type="rsync" location="US" preference="80" >rsync://ftp.wallawalla.edu/epel/7/x86_64/repodata/repomd.xml</url>
+        <url protocol="ftp" type="ftp" location="US" preference="80" >ftp://ftp.wallawalla.edu/pub/mirrors/epel/7/x86_64/repodata/repomd.xml</url>
+        <url protocol="http" type="http" location="US" preference="79" >http://dl.fedoraproject.org/pub/epel/7/x86_64/repodata/repomd.xml</url>
+        <url protocol="http" type="http" location="CA" preference="78" >http://fedora.westmancom.com/epel/7/x86_64/repodata/repomd.xml</url>
+      </resources>
+    </file>
+  </files>
+</metalink>

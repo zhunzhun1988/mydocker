@@ -22,13 +22,13 @@ fGetMachineIp()
 fStartEtcd()
 {
     if [ -z $etcd_server ]; then
-        echo "++++++++++++++++starting etcd+++++++++++++++++++++++++"
+            echo "++++++++++++++++starting etcd+++++++++++++++++++++++++"
         if [ -z "$(ps -fe|grep etcd  | grep -v grep)" ]; then
             sudo ./etcd/etcd --listen-client-urls=http://0.0.0.0:2379,http://0.0.0.0:4001 --advertise-client-urls=http://localhost:2379,http://localhost:4001 --listen-peer-urls=http://0.0.0.0:2380 --data-dir=/var/etcd/data 1>/dev/null 2>/dev/null &
             sleep 3 
-            echo "++++++++++++++start etcd +++++++++++++++++++++++++++"
+            echo "++++++++++++++++start    etcd+++++++++++++++++++++++++"
         else
-            echo "++++++++++++++etcd is started+++++++++++++++++++++++"
+            echo "++++++++++++++++etcd is started+++++++++++++++++++++++"
         fi
     fi
 }
@@ -38,25 +38,35 @@ fStartFlannel()
     if [ ! -z $etcd_server ]; then
         server=$etcd_server
     fi
-    echo "++++++++++++++++starting flannel+++++++++++++++++++++++++"
+           echo "++++++++++++++++starting flannel++++++++++++++++++++++"
     if [ -z "$(ps -fe|grep flanneld  | grep -v grep)" ]; then
       sudo  ./flannel/flanneld  --etcd-endpoints=http://$server:2379 --etcd-prefix=/coreos.com/network --ip-masq=true -logtostderr=false --log_dir=/var/log/flanneld 1>/dev/null 2>/dev/null &
       sleep 3
-      echo "++++++++++++++start flannel +++++++++++++++++++++++++++"
+           echo "++++++++++++++start flannel +++++++++++++++++++++++++"
     else
-      echo "++++++++++++++flannel is started+++++++++++++++++++++++"
+	  echo "+++++++++++++++flannel is started+++++++++++++++++++++"
     fi
 }
 
 curpath=$(pwd)
 bridge="mybr"
-imagepath="$curpath/image"
+infodir=$curpath"/runningpath/status"
 
 _createmachine=""
 
 createMyDocker() 
-{
+{       
     _createmachine=""
+    if [ $# -lt 1 ]; then
+       echo "please input which image to create"
+       return
+    fi
+    imagename=$1
+    imagepath=$curpath"/images/"$imagename"_image"
+    if [ ! -d $imagepath ]; then
+        echo "cann't find image of $1"
+        return 
+    fi   
     fStartEtcd
     fStartFlannel
     num=$(fGetMachineNum)
@@ -101,6 +111,7 @@ createMyDocker()
        sudo brctl addbr $bridge
     fi
     sudo ip link set dev $bridge up
+    sudo brctl addif $bridge machine$num
 
     if [ -z "$(ip ad | grep $bridge | grep $gwip)" ]; then
         sudo ip address add $gwip dev $bridge
@@ -118,26 +129,44 @@ createMyDocker()
     echo "busybox route add default gw $gwip" >> $runingpath/init.sh
     sudo chmod 777 $runingpath/init.sh
     _createmachine="rootmachine"$num
+
+
+    infopath=$infodir"/rootmachine"$num
+    sudo mkdir $infodir 1>/dev/null 2>/dev/null
+    sudo touch $infopath 1>/dev/null 2>/dev/null
+    sudo chmod 777 $infopath
+    echo "imagename:>$imagename" > $infopath
+    echo "createtime:>$(date)" >> $infopath
+    echo "cmd:>" >> $infopath
 }
+
 
 fStartMyDocker()
 {
     id=$(echo $1 | tr -cd "[0-9]")
     netns="netns"$id
     rootpath=$curpath"/machines/rootmachine"$id
+    shift 1
+    infopath=$infodir"/rootmachine"$id
+    imagename=$(cat $infopath  | grep imagename | awk -F':>' '{print $2}')
+    createtime=$(cat $infopath  | grep createtime | awk -F':>' '{print $2}')
+    cmd=$*
 
-    sudo brctl addif $bridge machine$id
-    sudo ip netns exec $netns  chroot $rootpath /bin/mybash2 mymachine$id
+    echo "imagename:>$imagename" > $infopath
+    echo "createtime:>$createtime" >> $infopath
+    echo "cmd:>$cmd" >> $infopath
+    sudo ip netns exec $netns  chroot $rootpath /bin/mybash2 mymachine$id $*
 }
 
 fHelp() 
 {
     echo "Commands:"
-    echo "  ps  Show running docker"
-    echo "  run  Create and start a docker"
-    echo "  start Start a created docker"
-    echo "  stop   Stop a docker"
-    echo "  clean  Stop all docker and clean the tmp fil"
+    echo "  ps                                Show running docker"
+    echo "  run imagename process             Create and start a docker"
+    echo "  create imagename                  Create a docker"
+    echo "  start machinename process         Start a created docker"
+    echo "  stop  machinename                 Stop a docker"
+    echo "  clean                             Stop all docker and clean the tmp fil"
 }
 
 fStopDocker()
@@ -171,13 +200,20 @@ fStopDocker()
 
 fDockerPs()
 {
+   printf "MachineName\tImage\tCommand\t\tStatus\tCreateTime\n"
    for m in $(ls ./machines)
    do
+      infopath=$infodir"/"$m
+      imagename=$(cat $infopath  | grep imagename | awk -F':>' '{print $2}')
+      createtime=$(cat $infopath  | grep createtime | awk -F':>' '{print $2}')
+      cmd=$(cat $infopath  | grep cmd | awk -F':>' '{print $2}')
+
       if [ ! -z "$(ps -ef | grep mybash2 | grep $m)" ]; then
-          echo $m "running"
+          status="running"
       else
-          echo $m "existed"
+          status="existed"
       fi
+      printf "$m\t$imagename\t$cmd\t$status\t$createtime\n"
    done
 }
 
@@ -193,20 +229,34 @@ fClean()
 if [ $# -lt 1 ]; then
    fHelp
 elif [ "$1" = "run" ]; then
-   createMyDocker
-   if [ ! -z $_createmachine ]; then
-       fStartMyDocker $_createmachine
+   if [ $# -lt 2 ]; then
+       echo "please input run image"
+   elif [ $# -lt 3 ]; then
+       echo "please input which process to run"
+   else
+       createMyDocker $2
+       if [ ! -z $_createmachine ]; then
+           shift 2
+           fStartMyDocker $_createmachine $*
+       fi
    fi
 elif [ "$1" = "create" ]; then
-   createMyDocker
-   if [ ! -z $_createmachine ]; then
-      echo "docker $_createmachine is created success"
+   if [ $# -lt 2 ]; then
+       echo "please input create image"
+   else
+       createMyDocker $1
+       if [ ! -z $_createmachine ]; then
+          echo "docker $_createmachine is created success"
+       fi
    fi
 elif [ "$1" = "start" ]; then
    if [ $# -lt 2 ]; then
-     echo "please input start docker name"
+     echo "please input start machine name"
+   elif [ $# -lt 3 ]; then
+     echo "please input start process name"
    else
-     fStartMyDocker $2
+     shift 1
+     fStartMyDocker $*
    fi
 elif [ "$1" = "stop" ]; then
    if [ $# -lt 2 ]; then

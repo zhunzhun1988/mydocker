@@ -1,7 +1,0 @@
-auto
-/usr/bin/ld
-
-/usr/bin/ld.bfd
-50
-/usr/bin/ld.gold
-30

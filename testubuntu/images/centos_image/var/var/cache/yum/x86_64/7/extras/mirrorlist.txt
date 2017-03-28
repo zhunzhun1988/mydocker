@@ -1,0 +1,10 @@
+http://centos-distro.cavecreek.net/centos/7.1.1503/extras/x86_64/
+http://mirrors.syringanetworks.net/centos/7.1.1503/extras/x86_64/
+http://mirror.symnds.com/CentOS/7.1.1503/extras/x86_64/
+http://mirrors.usinternet.com/centos/7.1.1503/extras/x86_64/
+http://centos.mirrors.tds.net/pub/linux/centos/7.1.1503/extras/x86_64/
+http://mirror.hostduplex.com/centos/7.1.1503/extras/x86_64/
+http://mirror.solarvps.com/centos/7.1.1503/extras/x86_64/
+http://mirrors.psychz.net/Centos/7.1.1503/extras/x86_64/
+http://centos.host-engine.com/7.1.1503/extras/x86_64/
+http://centos-mirror.jchost.net/7.1.1503/extras/x86_64/
