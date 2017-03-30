@@ -1,5 +1,8 @@
-#!/bin/sh 
+#!/bin/bash 
 #set -x
+
+cgroupcpu=1000000
+
 fGetMachineNum()
 {
     for id in `seq 2 254`
@@ -140,6 +143,41 @@ createMyDocker()
     echo "cmd:>" >> $infopath
 }
 
+fGetCgroupPath()
+{
+   str=$(mount | grep cgroup | grep tmpfs)
+   if [ ! -z "$str" ]; then
+       path=$(echo $str |awk -F' ' '{print $3}')
+       echo $path
+   fi
+}
+
+fGetCpuCgroup()
+{
+   rootPath=$(fGetCgroupPath)
+   if [ -d $rootPath"/cpu" ]; then
+       echo $rootPath"/cpu"
+   fi    
+}
+
+fAddCpuLimit()
+{
+   if [ $# -lt 2 ]; then
+      return
+   fi
+   mydockerpath=$(fGetCpuCgroup)"/mydocker"
+   mymachinepath=$mydocerpath"/"$1
+   cpulimit=$(($2 * 1000))
+   if [ ! -d $mydockerpath ]; then
+     sudo mkdir $mydockerpath
+   fi
+   if [ ! -d $mydockerpath ]; then
+     sudo mkdir $mymachinepath
+   fi
+   echo "1000000" > $mymachinepath"/cpu.cfs_period_us"
+   echo $cpulimit > $mymachinepath"/cpu.cfs_quota_us"
+   echo $$ >> $mymachinepath"/cgroup.procs" 
+}
 
 fStartMyDocker()
 {
@@ -155,7 +193,10 @@ fStartMyDocker()
     echo "imagename:>$imagename" > $infopath
     echo "createtime:>$createtime" >> $infopath
     echo "cmd:>$cmd" >> $infopath
+    
     sudo ip netns exec $netns  chroot $rootpath /bin/mybash2 mymachine$id $*
+    echo "cur pid="$$
+    echo "cgroupcpu="$cgroupcpu
 }
 
 fHelp() 
@@ -226,49 +267,97 @@ fClean()
    done
 }
 
-if [ $# -lt 1 ]; then
-   fHelp
-elif [ "$1" = "run" ]; then
-   if [ $# -lt 2 ]; then
-       echo "please input run image"
-   elif [ $# -lt 3 ]; then
-       echo "please input which process to run"
-   else
-       createMyDocker $2
-       if [ ! -z $_createmachine ]; then
-           shift 2
-           fStartMyDocker $_createmachine $*
+_argName=""
+_argValue=""
+fGetArg()
+{
+   _argName=""
+   _argValue=""
+   cmd=$1
+   if [ ${cmd:0:1} = "-" ]; then
+       pos=$(expr index $cmd '=')
+       if [ $pos -gt 0 ]; then
+           _argName=${cmd:1:$(($pos - 2))}
+           _argValue=${cmd:$(($pos + 0))}
        fi
    fi
-elif [ "$1" = "create" ]; then
-   if [ $# -lt 2 ]; then
-       echo "please input create image"
-   else
-       createMyDocker $1
-       if [ ! -z $_createmachine ]; then
-          echo "docker $_createmachine is created success"
-       fi
-   fi
-elif [ "$1" = "start" ]; then
-   if [ $# -lt 2 ]; then
-     echo "please input start machine name"
-   elif [ $# -lt 3 ]; then
-     echo "please input start process name"
-   else
-     shift 1
-     fStartMyDocker $*
-   fi
-elif [ "$1" = "stop" ]; then
-   if [ $# -lt 2 ]; then
-     echo "please input stop docker name"
-   else
-     fStopDocker $2
-   fi
-elif [ "$1" = "clean" ]; then
-   fClean
-elif [ "$1" = "ps" ]; then
-   fDockerPs
-else
-   fHelp
-fi
+}
 
+
+cmd=$1
+case $cmd in
+     run)
+    shift 1
+    while true
+    do
+       fGetArg $1
+       case $_argName in
+          cpu)
+            shift 1
+            cgroupcpu=$_argValue
+            ;;
+          *)
+           break
+       esac
+    done
+    echo "cgroupcpu=" $cgroupcpu 
+    imagename=$1
+    processname=$2
+    if [ -z $imagename ]; then
+       echo "please input run image"
+       exit
+    fi
+    if [ -z $processname ]; then
+       echo "please input which process to run"
+       exit
+    fi
+    createMyDocker $imagename
+    if [ ! -z $_createmachine ]; then
+          shift 1
+          fStartMyDocker $_createmachine $*
+    fi
+    ;;
+  create)
+    shift 1
+    imagename=$1
+    if [ -z $imagename ]; then
+       echo "please input create image"
+       return
+    fi
+    createMyDocker $imagename
+    if [ ! -z $_createmachine ]; then
+       echo "docker $_createmachine is created success"
+    fi
+    ;;
+  start)
+    shift 1
+    machinename=$1
+    processname=$2
+    if [ -z $machinename ]; then
+       echo "please input start machine name"
+       return
+    fi
+    if [ -z $processname ]; then
+       echo "please input start process name"
+       return
+    fi
+    fStartMyDocker $*
+    ;;
+  stop)
+    shift 1
+    machinename=$1
+    if [ -z $machinename ]; then
+       echo "please input stop docker name"
+       return
+    fi
+    fStopDocker $machinename
+    ;;
+ clean)
+    fClean
+    ;;
+   ps)
+    fDockerPs
+    ;;
+   *)
+    fHelp
+esac
