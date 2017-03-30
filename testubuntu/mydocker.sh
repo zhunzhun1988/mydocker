@@ -22,15 +22,24 @@ fGetMachineIp()
     echo $flannelNetIp"."$1
 }
 
+fSetEtcd()
+{
+    config=$(./etcd/etcdctl get /coreos.com/network/config)
+    if [ -z "$(echo $config | grep Network)" ]; then
+        ./etcd/etcdctl set /coreos.com/network/config '{"Network": "10.9.0.0/16", "Backend": {"Type": "vxlan"}}'
+    fi
+}
 fStartEtcd()
 {
     if [ -z $etcd_server ]; then
             echo "++++++++++++++++starting etcd+++++++++++++++++++++++++"
         if [ -z "$(ps -fe|grep etcd  | grep -v grep)" ]; then
             sudo ./etcd/etcd --listen-client-urls=http://0.0.0.0:2379,http://0.0.0.0:4001 --advertise-client-urls=http://localhost:2379,http://localhost:4001 --listen-peer-urls=http://0.0.0.0:2380 --data-dir=/var/etcd/data 1>/dev/null 2>/dev/null &
+             fSetEtcd
             sleep 3 
             echo "++++++++++++++++start    etcd+++++++++++++++++++++++++"
         else
+            fSetEtcd
             echo "++++++++++++++++etcd is started+++++++++++++++++++++++"
         fi
     fi
@@ -166,17 +175,21 @@ fAddCpuLimit()
       return
    fi
    mydockerpath=$(fGetCpuCgroup)"/mydocker"
-   mymachinepath=$mydocerpath"/"$1
+   mymachinepath=$mydockerpath"/"$1
    cpulimit=$(($2 * 1000))
+   if [ $cpulimit -lt 100 ]; then
+      cpulimit=-1
+   fi
    if [ ! -d $mydockerpath ]; then
      sudo mkdir $mydockerpath
    fi
-   if [ ! -d $mydockerpath ]; then
+   if [ ! -d $mymachinepath ]; then
      sudo mkdir $mymachinepath
    fi
    echo "1000000" > $mymachinepath"/cpu.cfs_period_us"
    echo $cpulimit > $mymachinepath"/cpu.cfs_quota_us"
    echo $$ >> $mymachinepath"/cgroup.procs" 
+   echo $mymachinepath
 }
 
 fStartMyDocker()
@@ -193,10 +206,9 @@ fStartMyDocker()
     echo "imagename:>$imagename" > $infopath
     echo "createtime:>$createtime" >> $infopath
     echo "cmd:>$cmd" >> $infopath
-    
-    sudo ip netns exec $netns  chroot $rootpath /bin/mybash2 mymachine$id $*
-    echo "cur pid="$$
-    echo "cgroupcpu="$cgroupcpu
+     
+    fAddCpuLimit "rootmachine"$id $cgroupcpu
+    sudo ip netns exec $netns  chroot $rootpath /bin/mybash2 mymachine$id $*  
 }
 
 fHelp() 
@@ -216,9 +228,10 @@ fStopDocker()
    netns="netns"$id
    rootpath=$curpath"/machines/rootmachine"$id
    runingpath=$curpath"/runningpath/machine"$id
-   
+   mydockerpath=$(fGetCpuCgroup)"/mydocker"
+   mymachinepath=$mydockerpath"/rootmachine"$1
    pid=`ps -ef | grep  "00:00:00 /bin/mybash2" | grep mymachine$id  | awk -F' ' '{print $2}'`
-  if [ ! -z "$pid" ]; then
+   if [ ! -z "$pid" ]; then
       pid=$(ps -ef | grep -E "[0-9]+ $pid" |awk -F' ' '{print $2}')
       if [ ! -z "$pid" ]; then
          sudo kill -9 $pid
@@ -236,7 +249,11 @@ fStopDocker()
    fi
    if [ -d $runingpath ]; then
        sudo rm -rf $runingpath
-   fi  
+   fi
+   if [  -d $mymachinepath ]; then
+       sudo rmdir $mymachinepath
+   fi
+
 }
 
 fDockerPs()
@@ -261,7 +278,7 @@ fDockerPs()
 
 fClean()
 {
-   for id in $(seq 1 255)
+   for id in $(seq 1 10)
    do
       fStopDocker $id
    done
@@ -283,7 +300,10 @@ fGetArg()
    fi
 }
 
-
+if [ ! `whoami` = "root" ]; then
+   echo "please use root"
+   exit
+fi
 cmd=$1
 case $cmd in
      run)
