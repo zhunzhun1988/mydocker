@@ -2,6 +2,7 @@
 #set -x
 
 cgroupcpu=1000000
+cgroupmem=""
 
 fGetMachineNum()
 {
@@ -160,7 +161,13 @@ fGetCgroupPath()
        echo $path
    fi
 }
-
+fGetMemoryCgroup()
+{
+   rootPath=$(fGetCgroupPath)
+   if [ -d $rootPath"/memory" ]; then
+       echo $rootPath"/memory"
+   fi
+}
 fGetCpuCgroup()
 {
    rootPath=$(fGetCgroupPath)
@@ -188,10 +195,30 @@ fAddCpuLimit()
    fi
    echo "1000000" > $mymachinepath"/cpu.cfs_period_us"
    echo $cpulimit > $mymachinepath"/cpu.cfs_quota_us"
-   echo $$ >> $mymachinepath"/cgroup.procs" 
    echo $mymachinepath
 }
 
+fAddMemoryLimit()
+{
+   if [ $# -lt 2 ]; then
+      return
+   fi
+   mydockerpath=$(fGetMemoryCgroup)"/mydocker"
+   mymachinepath=$mydockerpath"/"$1
+   memorylimit=$2
+   if [ -z $memorylimit ]; then
+      return
+   fi
+   if [ ! -d $mydockerpath ]; then
+     sudo mkdir $mydockerpath
+   fi
+   if [ ! -d $mymachinepath ]; then
+     sudo mkdir $mymachinepath
+   fi
+   echo $memorylimit > $mymachinepath"/memory.limit_in_bytes"
+   echo $memorylimit > $mymachinepath"/memory.soft_limit_in_bytes"
+   echo $mymachinepath
+}
 fStartMyDocker()
 {
     id=$(echo $1 | tr -cd "[0-9]")
@@ -208,7 +235,9 @@ fStartMyDocker()
     echo "cmd:>$cmd" >> $infopath
      
     fAddCpuLimit "rootmachine"$id $cgroupcpu
-    sudo ip netns exec $netns  chroot $rootpath /bin/mybash2 mymachine$id $*  
+    fAddMemoryLimit "rootmachine"$id $cgroupmem
+
+    sudo cgexec -g cpu:"mydocker/rootmachine"$id ip netns exec $netns  chroot $rootpath /bin/mybash2 mymachine$id $*  
 }
 
 fHelp() 
@@ -228,8 +257,10 @@ fStopDocker()
    netns="netns"$id
    rootpath=$curpath"/machines/rootmachine"$id
    runingpath=$curpath"/runningpath/machine"$id
-   mydockerpath=$(fGetCpuCgroup)"/mydocker"
-   mymachinepath=$mydockerpath"/rootmachine"$1
+   mycpudockerpath=$(fGetCpuCgroup)"/mydocker"
+   mycpumachinepath=$mydockerpath"/rootmachine"$1
+   mymemdockerpath=$(fGetMemoryCgroup)"/mydocker"
+   mymemmachinepath=$mymemdockerpath"/rootmachine"$1
    pid=`ps -ef | grep  "00:00:00 /bin/mybash2" | grep mymachine$id  | awk -F' ' '{print $2}'`
    if [ ! -z "$pid" ]; then
       pid=$(ps -ef | grep -E "[0-9]+ $pid" |awk -F' ' '{print $2}')
@@ -250,8 +281,11 @@ fStopDocker()
    if [ -d $runingpath ]; then
        sudo rm -rf $runingpath
    fi
-   if [  -d $mymachinepath ]; then
-       sudo rmdir $mymachinepath
+   if [ -d $mycpumachinepath ]; then
+       sudo rmdir $mycpumachinepath
+   fi
+   if [ -d $mymemmachinepath ]; then
+       sudo rmdir $mymemmachinepath
    fi
 
 }
@@ -316,11 +350,14 @@ case $cmd in
             shift 1
             cgroupcpu=$_argValue
             ;;
+          mem)
+            shift 1
+            cgroupmem=$_argValue
+            ;;
           *)
            break
        esac
     done
-    echo "cgroupcpu=" $cgroupcpu 
     imagename=$1
     processname=$2
     if [ -z $imagename ]; then
@@ -351,6 +388,22 @@ case $cmd in
     ;;
   start)
     shift 1
+    while true
+    do
+       fGetArg $1
+       case $_argName in
+          cpu)
+            shift 1
+            cgroupcpu=$_argValue
+            ;;
+          mem)
+            shift 1
+            cgroupmem=$_argValue
+            ;;
+          *)
+           break
+       esac
+    done
     machinename=$1
     processname=$2
     if [ -z $machinename ]; then
