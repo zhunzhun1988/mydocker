@@ -134,13 +134,14 @@ createMyDocker()
        sudo route add -net $netip netmask 255.255.255.0 dev $bridge
     fi
 
-    echo "#create by startmachine.sh" > $runingpath/init.sh
-    echo "ip link set dev lo up" >> $runingpath/init.sh
-    echo "ip link set dev eth0 up" >> $runingpath/init.sh
-    echo "mount -t proc proc /proc" >> $runingpath/init.sh
-    echo "busybox route add -net $netip netmask 255.255.255.0 dev eth0" >> $runingpath/init.sh
-    echo "busybox route add default gw $gwip" >> $runingpath/init.sh
-    sudo chmod 777 $runingpath/init.sh
+    #echo "#create by startmachine.sh" > $runingpath/init.sh 
+    #echo "mount -t proc proc /proc" >> $runingpath/init.sh 
+    #sudo chmod 777 $runingpath/init.sh
+    sudo ip netns exec $netns ip link set dev lo up
+    sudo ip netns exec $netns ip link set dev eth0 up
+    sudo ip netns exec $netns route add -net $netip netmask 255.255.255.0 dev eth0
+    sudo ip netns exec $netns route add default gw $gwip
+
     _createmachine="rootmachine"$num
 
 
